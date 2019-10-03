@@ -1,0 +1,43 @@
+h2 {
+	text-align: left;
+}
+
+#content #mainpic{
+	width: 66.666666%;
+	height: 100%;
+	background-image: url(../images/momToddler2.jpg);
+	background-size: 100% 100%;
+	padding-bottom: 380px;
+	margin-left: 160px;
+	border-radius: 2%;
+}
+
+#content #boxleft{
+	float: left;
+	text-align: left;
+	width: 65%;
+	padding: 15px 10px 10px 0px;
+}
+
+#content #boxleft p {
+	padding: 8px 0px 0px 0px;
+}
+
+#content #boxright{
+	float: right;
+	text-align: left;
+	width: 30%;
+	padding: 0px 10px 60px 0px;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #E27866;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: 1px solid #402B2B;
+	border-radius: 8%;
+}

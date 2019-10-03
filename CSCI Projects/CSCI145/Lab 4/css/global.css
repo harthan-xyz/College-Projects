@@ -1,0 +1,94 @@
+.container{
+	width: 750px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+body{
+	font-size: 16px;
+	line-height: 20px;
+	font-family: "Dosis";
+	background-color:#F4F5F3;
+
+
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: "Spectral SC";
+	line-height: 2em;
+	color:#F52712;
+	font-weight: 550;
+}
+
+h1{
+	font-size: 2em;
+}
+
+h2{
+	font-size: 1.85em;
+}
+
+h3{
+	font-size: 1.7em;
+
+}
+
+h4{
+	font-size: 1.5em;
+
+}
+
+h5{
+	font-size: 1.25em;
+
+}
+
+h6{
+	font-size: 1em;
+
+}
+
+ul{
+	list-style-type: square;
+}
+
+ol{
+	list-style-type: upper-alpha;
+}
+
+ol li , ul li{
+    padding: 4px;
+    margin-left: 40px;
+}
+
+a{
+	color:#DE1012;
+}
+
+a:visited{
+	color:black;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+blockquote{
+	margin-left: 30px;
+	margin-right: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-left: 3px solid;
+	padding-left: 8px;
+	border-color: black;
+}
+
+.button{
+	background-color:#F52712;
+	border: 1px solid;
+	text-decoration: none;
+	padding: 6px 8px;
+	font-family: Spectral SC;
+	font-weight: 650;
+	line-height:2.5em;
+}
+

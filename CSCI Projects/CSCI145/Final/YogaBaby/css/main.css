@@ -1,0 +1,82 @@
+
+#content #mainpic{
+	width: 66.6%;
+	height: auto;
+	background-image: url(../images/momBaby.jpg);
+	background-size: 100% 100%;
+	padding-bottom: 380px;
+	margin-left: 160px;
+	border-radius: 2%;
+}
+
+#content .box{
+	text-align: left;
+	display:inline-block;
+	margin:0 auto;
+	width:33.3333%;
+	float:left;
+}
+
+#content .box h2{
+	color: #E27866;
+}
+
+.box-left{
+	padding: 10px 10px 10px 0px;
+}
+
+.box-left p{
+	padding: 1px 1px 1px 3px;
+	background-color: #E27866;
+	border-radius: 8px;
+}
+
+.box-middle{
+	padding: 10px 10px 10px 0px;
+}
+
+.box-middle h2{
+	text-align: center;
+}
+
+.box-middle p{
+	padding: 1px 1px 1px 3px;
+	background-color: #E27866;
+	border-radius: 8px;
+}
+
+.box-right{
+	padding: 10px 0px 10px 0px;
+	
+}
+
+.box-right h2{
+	text-align: right;
+	margin-right: 0px;
+}
+
+.box-right p{
+	padding: 1px 1px 1px 3px;
+	width: 98%;
+	background-color: #E27866;
+	border-radius: 8px;
+}
+
+.img-left{
+	height: 63%;
+	width: 63%;
+	margin: 0px 15px 0px 0px;
+}
+
+.img-middle{
+	height: 95%;
+	width: 95%;
+	border-radius: 8%;
+	margin: 0px 0px 0px 15px;
+}
+
+.img-right{
+	height: 92%;
+	width: 92%;
+	margin: 0px 0px 0px 30px
+}

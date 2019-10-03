@@ -1,0 +1,30 @@
+h1{
+	color: #FF0000;
+	border-bottom: solid 5px;
+	text-align:center;
+}
+
+h2{
+	color: #0000FF;
+	border-bottom: solid 3px;
+}
+
+#leftbody p{
+	text-indent: 25px;
+}
+
+#rightbox{
+	width: 25%;
+	border: solid;
+	border-width: 2px;
+	border-color: #0000FF;
+	padding: 0px;
+	margin: 0px;
+	float: right;
+}
+
+#leftbody{
+	width: 74.5%;
+	padding: 0px;
+	margin: 0px;
+}

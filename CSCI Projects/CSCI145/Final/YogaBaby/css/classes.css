@@ -1,0 +1,99 @@
+#content #mainpic{
+	width: 66.6%;
+	height: auto;
+	background-image: url(../images/studio.jpg);
+	background-size: 100% 100%;
+	padding-bottom: 380px;
+	margin-left: 0px;
+	margin-right: 0px;
+	border-radius: 2%;
+	float: left;
+}
+
+#content #rightpic{
+	background-image: url(../images/momKid.jpg);
+	width: 33.3%;
+	height: auto;
+	float: right;
+	background-size: 100% 100%;
+	padding-bottom: 80px;
+	border-radius: 2%;
+}
+
+#rightpic h2{
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 300px;
+}
+
+#mainpic h2{
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+}
+
+#img-left{
+	background-image: url(../images/prenatal.jpg);
+	background-size: 100% 100%;
+	float:left;
+	width: 33%;
+	height: auto;
+	border-radius: 1%;
+	display: inline-block;
+}
+
+#img-left h2{
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 150px;
+}
+
+
+#img-middle{
+	background-image: url(../images/babyGroup.jpg);
+	background-size: 100% 100%;
+	width: 33%;
+	height: auto;
+	border-radius: 1%;
+	display: inline-block;
+}
+
+#img-middle h2{
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 150px;
+}
+
+#img-right{
+	background-image: url(../images/kidPose.jpg);
+	background-size: 100% 100%;
+	float:right;
+	width: 33%;
+	height: auto;
+	border-radius: 1%;
+	display: inline-block;
+}
+
+#img-right h2{
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 150px;
+}
+
+a{
+	text-decoration: none;
+}
+
+h2:hover{
+	text-shadow: 0 3px 3px #469BE7;
+}
+
