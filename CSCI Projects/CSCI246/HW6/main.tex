@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage{fasy-hw}
+
+\author{Joshua Harthan}
+\problem{1}
+% \problem{A-B} means Problem Set A, Problem B.
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+% or give names, e.g., \collab{Alyssa P. Hacker and A. Student}
+
+\begin{document}
+\item 1.1 "Prove that $f(x) = 2^x + x^2$ is $O(4^x)$. 
+
+\item Since $x^2$ is less than $2^x$ we can say that $$2^x + x^2 \leq 2 * 2^x \leq c*4^x$$
+With $c = 2$ and $n_o = 1$, $2(4^x)$ will always be larger than $2*2^x$ which is larger than $2^x + x^2$. Therefore, $f(x)$ is $O(4^x)$
+
+
+
+\item 1.2 "Is it true that $g(x) = 4^x + x$ is $O(f(x))$? Prove it."
+
+\item It is not true that $g(x)$ is $O(f(x))$. $g(x)$ will always be the upper bound compared to $1*f(x)$, as long as $x >= 0$. Evaluating both equations when $x = 0$, $g(x) = 1$ and $f(x) = 1$. From there, as $x$ increases, $g(x)$ will always be greater than $f(x)$. 
+
+Or from last problem, it was proven that $4^x \geq 2^x + x^2$, so $4^x + x \geq 2^x + x^2$. Therefore, $4^x + x \geq 2^x + x^2$ is not true. $g(x)$ is not $O(f(x))$
+
+
+
+\problem{2}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+\item "The Fibonacci numbers are defined as follows: $F_0=F_1=1$. $F_n=F_{n-1} + F_{n-2}$ for all $n \geq 2$. Prove $\sum_{i=0}^n F_i = F_{n+2}-1$."
+
+\item Base case: The base case is when n = 1. $\sum_{i=0}^1 F_i = F_3 - 1$ simplifies into $F_0 + F_1 = F_3 - 1$. Because $F_3=F_{2} + F_{1}$, $F_2 = F_1+ F_0$ and $F_0=F_1 = 1$, $F_3 = 1 + 1 + 1 = 3$. This means that $F_0 + F_1 = F_3 - 1$ can be written as $1 + 1 = 3 - 1$, which gives $2=2$. Therefore, $\sum_{i=0}^n F_i = F_{n+2}-1$ holds for $n = 1$.
+\item Let $k$ be a positive integer, suppose that the sum is true for $n = k$. For $k + 1$, $\sum_{i=0}^{k+1} F_i = F_{k+3} - 1$. The left hand side can be written as $\sum_{i=0}^k F_i + F_{k+1}$. From the inductive hypothesis, $\sum_{i=0}^k F_i$ can be written as $F_{k+2}-1$, giving $F_{k+2} - 1 + F_{k+1}$. Since $F_n=F_{n-1} + F_{n-2}$ we get $F_{k+2} + F_{k+1} - 1 = F_{k+3} - 1$, which is equal to the right hand side after k + 1 was plugged in. Therefore, by induction, $\sum_{i=0}^n F_i = F_{n+2}-1$.
+
+\problem{3}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+\item 5.5 problem 42: "Use the recursive definition of product, together with mathematical induction, to prove that for all positive integers n, if $a_1$, $a_2$, . . . , $a_n$ and $c$ are real numbers, then:
+
+\item ${\displaystyle \prod_{i=1}^{n} ca_i} = c^{n} ({\displaystyle \prod_{i=1}^{n} a_i})$.
+
+\begin{proof}
+    \caption{By Induction:} Let $P(n)$ be ${\displaystyle \prod_{i=1}^{n} ca_i} = c^{n} ({\displaystyle \prod_{i=1}^{n} a_i})$
+
+Let $c, a_1, a_2, ...., a_n$ be real numbers. 
+
+Base case: $n = 1$
+
+${\displaystyle \prod_{i=1}^{1} ca_i} = ca_1 = c^{1} ({\displaystyle \prod_{i=1}^{1} a_i})$
+
+$P(1)$ is true.
+
+Let $P(k)$ be true, so that means that ${\displaystyle \prod_{i=1}^{k} ca_i} = c^{k} ({\displaystyle \prod_{i=1}^{k} a_i})$  while $k \geq 1$
+
+Now we prove that $P(k + 1)$ is true.
+
+We can replace all instances of $k$ in $P(k)$ with $k+1$
+
+${\displaystyle \prod_{i=1}^{k+1} ca_i} = (ca_{k+1}) ({\displaystyle \prod_{i=1}^{k} ca_i})$
+
+$= c^{k} ({\displaystyle \prod_{i=1}^{k} a_i}) * (ca_{k+1})$
+
+$= c^{k+1} [({\displaystyle \prod_{i=1}^{k} a_i}) * (a_{k+1})]$
+
+$= c^{k+1} ({\displaystyle \prod_{i=1}^{k+1} a_i})$
+
+$P(k+1)$ is true.
+
+By using mathematical induction, we proved that $P(n)$ is true for all $n$ when $n$ is a positive integer.
+\end{proof}
+
+
+
+\problem{4 (5.5 problem 7)}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+\item 5.5 problem 7: "Find the first four terms of  the recursively defined sequence, $u_k = ku_{k-1} - u_{k-2},$ for all integers $k \geq 3, u_1 = 1, u_2 = 1$."
+
+\item We are given $u_1 = u_2 = 1.$ Therefore we only need to solve for $u_3$ and $u_4$.
+\item With $k = 3$, $u_3 = 3(u_2) - (u_1) = 3(1) - 1 = 2$. This means $u_3 = 2$.
+\item With $k = 4$, $u_4 = 4(u_3) - (u_2) = 4(2) - 1 = 7$. This means $u_4 = 7$.
+\item Therefore the first four terms are $u_1 = 1, u_2 = 1, u_3 = 2, u_4 = 7$.
+
+
+
+
+\problem{4 (5.5 problem 32)}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+\item 5.5 problem 32: "It turns out that the Fibonacci sequence satisfies the following explicit formula: For all integers $F_n \geq 0$,
+
+\item $F_n = \frac{1}{\sqrt{5}}[(\frac{1 + \sqrt{5}}{2})^{n+1} - (\frac{1 - \sqrt{5}}{2})^{n+1}]$
+
+\item Verify that the sequence defined by this formula satisfies the recurrence relation $F_k = F_{k-1}+F_{k-2}$ for all integers $k\geq2$.
+
+\item To begin, $F_{k-1}+F_{k-2} = \frac{1}{\sqrt{5}}[(\frac{1 + \sqrt{5}}{2})^{k-1+1} - (\frac{1 - \sqrt{5}}{2})^{k-1+1}] + \frac{1}{\sqrt{5}}[(\frac{1 + \sqrt{5}}{2})^{k-2+1} - (\frac{1 - \sqrt{5}}{2})^{k-2+1}]$.
+\item This can be simplified into $ \frac{1}{\sqrt{5}}[(\frac{1 + \sqrt{5}}{2})^{k-1} - (\frac{1 - \sqrt{5}}{2})^{k-1}] + \frac{1}{\sqrt{5}}[(\frac{1 + \sqrt{5}}{2})^{k-1} - (\frac{1 - \sqrt{5}}{2})^{k-1}]$.
+\item Factoring out a common factor results in $ \frac{1}{\sqrt{5}}(\frac{1 + \sqrt{5}}{2})^{k-1}(1 + \frac{1 + \sqrt{5}}{2}) - \frac{1}{\sqrt{5}}(\frac{1 - \sqrt{5}}{2})^{k-1}(1 + \frac{1 - \sqrt{5}}{2})$.
+\item Adding terms and multiplying by the $(1 + \frac{1 + \sqrt{5}}{2})$ and $(1 + \frac{1 - \sqrt{5}}{2})$ terms by $\frac{2}{2}$ results in $ \frac{1}{\sqrt{5}}(\frac{1 + \sqrt{5}}{2})^{k-1}(\frac{6 + 2\sqrt{5}}{4}) - \frac{1}{\sqrt{5}}(\frac{1 - \sqrt{5}}{2})^{k-1}(\frac{6 - 2\sqrt{5}}{4})$.
+\item Since $(1+\sqrt{5})^2 = 1 + 2\sqrt{5} + 5 = 6 + 2\sqrt{5}$, we can simplify into $ \frac{1}{\sqrt{5}}(\frac{1 + \sqrt{5}}{2})^{k-1}(\frac{1 + \sqrt{5}}{2})^2 - \frac{1}{\sqrt{5}}(\frac{1 - \sqrt{5}}{2})^{k-1}(\frac{1 - \sqrt{5}}{2})^2$.
+\item Multiplying same bases by different powers results in adding the powers, and keeping the same base. Therefore we get $ \frac{1}{\sqrt{5}}(\frac{1 + \sqrt{5}}{2})^{k+1} - \frac{1}{\sqrt{5}}(\frac{1 - \sqrt{5}}{2})^{k+1}.$ 
+\item Factoring out $\frac{1}{\sqrt{5}}$ gives $\frac{1}{\sqrt{5}}[(\frac{1 + \sqrt{5}}{2})^{k+1} - (\frac{1 - \sqrt{5}}{2})^{k+1}]$, which is equal to $F_k$ ($F_n$ just with the variable k) from the problem. Therefore the Fibonacci sequence defined in the question satisfies the recurrence relation $F_k = F_{k-1}+F_{k-2}$ for all integers $k\geq2$.
+
+
+\problem{5}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+\item "In the Four Colors Suffice book, we saw the definition of Euler's Formula for a finite decomposition of a Sphere or 2-plane into vertices, edges, and faces."
+
+5.1 "What is the other formula known as Euler's formula?"
+
+Euler's formula otherwise known as Euler's polyhedron formula is the expression that states $F + V = E + 2$ or $F - E + V = 2$, where $F$ is the number of faces, $V$ is the number of vertices, and $E$ for the number of edges of a polyhedron.
+
+
+5.2 "Consider the following construction: Start with a solid cube. Then, slice off a small region around each vertex (image you have a sharp knife, so you take off a tetrahedron at each corner). How many vertices, edges, and faces are on the surface of this object before and after this operation? What polyhedron is this?"
+
+Before the operation, you have a cube with six faces $(F = 6)$, twelve edges $(E = 12)$, and eight vertices $(V = 8)$. After the operation, you have a polyhedron with six octagonal faces and eight triangular faces for a total of fourteen faces $(F = 14)$, thirty-six edges $(E = 36)$, and twenty-four vertices $(V = 24)$. This polyhedron is known as a truncated cube. 
+
+5.3 "Draw a projection of the octahedron onto the plane such that edges only intersect at vertices. Can every polyhedron be drawn in such a way?"
+
+Every polyhedron can be drawn in this way, by "inflating" the polyhedron onto a sphere and then projecting this sphere down onto a plane where edges only intersect at vertices, creating a projection of a three-dimensional polyhedron onto a two-dimensional plane.
+
+5.4 "If we have a tree $T=(V,E)$, what is $|V|-|E|$? Be sure to prove your claim."
+
+From the \textit{Discrete Mathematics} book, the definition of a tree is a connected graph that does not contain any circuits, and is made up of a certain amount of vertices and edges. It also states that a tree with $V$ vertices, so long as $V$ is a positive integer, has $V - 1$ edges. Therefore, if we have a tree with $V$ vertices and $E$ edges, and we want to take $|V|-|E|$, we can sub in our value of $V - 1$ for $E$. This gives us $|V|-|V - 1|$; from here it can be seen that the $V$'s cancel and we are left with a value of $-|-1|$ or the value -1. Therefore, if we have a tree $T=(V,E)$, $|V|-|E|$ is -1, so long that we have a positive $V$.
+
+\problem{6}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+Fibonacci found the sequence of numbers known as the Fibonacci sequence. The sequence is seemingly found everywhere. This sequence is also found in computer science in time efficient data structures. His contributions to number theory are extremely important to modern day math and computer science.
+\footnote{\hyperref[Resource 1]{\ulhttps://www.britannica.com/biography/Fibonacci}}
+
+
+
+\problem{Bonus}
+\collab{Joshua Harthan, Derek Jacobson, Cayden Seiler, Joshua Freund, Michael Valentino-Manno}
+\clearpage
+\header
+
+"One thing that we need to consider as computer scientists is making our products (software, technical papers) accessible to a wide range of people. When designing GUIs or writing technical papers (e.g., journal papers or even homework solutions), explain five things that you could do to make your product more accessible to people who might be colorblind or colorweak (or have a bad computer screen)."
+
+1. Make the entire project in black and white.
+\item 2. You could use contrasting colors in the project.
+\item 3. Adding different color shadings to account for the different types of colorblindness could be beneficial.
+\item 4. Using outlines/frames/shadows to give more visual difference would be good.
+\item 5. Provide auditory content for navigation of the project.
+\end{document}
+
+
