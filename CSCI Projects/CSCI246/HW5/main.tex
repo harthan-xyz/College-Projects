@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{fasy-hw}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+
+\author{Joshua Harthan}
+\problem{1}
+\collab{none}
+\begin{document}
+5.1 Question 49
+\item[]Transform the following by making the change of variable to $i = k + 1$.
+\item[]$\prod_{k=1} ^{n} \frac{k}{k^{2} + 4}$ 
+\item[]product: $\prod_{k=1} ^{n} \frac{k}{k^{2} + 4}$ \;\;\;\;\; change of variable: $i = k + 1$
+\item[]To solve for this product change, first solve for the lower and upper limits of the new product: when k = 1, $i = k + 1 = 1 + 1 = 2$ and when k = n, $i = k + 1 = n + 1$. Next replace the general term of the new product: since $i = k + 1$, then $k = i - 1$. Therefore, the new product is:
+\item[]$\prod_{k=1} ^{n} \frac{k}{k^{2} + 4}$ = $\prod_{i = 2} ^{n + 1} \frac{i - 1}{(i -1)^{2} + 4}$ 
+
+\problem{2}
+\collab{none}
+\clearpage
+\header
+5.2 Question 16
+\item[]Prove the following by mathematical induction.
+\item[]$(1 - \frac{1}{2^{2}})(1 -\frac{1}{3^{2}})$ ... $(1 -\frac{1}{n^{2}}) = \frac{n + 1}{2n}$, for all integers $n \geq 2$.
+\item[] Let $P(n) = (1 - \frac{1}{2^{2}})(1 -\frac{1}{3^{2}})$ ... $(1 -\frac{1}{n^{2}})$. First, we must show that $P(n) = (1 - \frac{1}{2^{2}})(1 -\frac{1}{3^{2}})$ ... $(1 -\frac{1}{n^{2}}) = \frac{n + 1}{2n}$ holds true for $P(2)$. Plugging in this value in for $n$ gives us the equation $P(2) = (1 - \frac{1}{2^{2}}) = \frac{2 + 1}{2*2}$ which is equivalent to $(1- \frac{1}{4}) = \frac{3}{4}$ or $\frac{3}{4} = \frac{3}{4}$. Since $P(2)$ holds true, we must show that for all integers $k \geq 2$, if $P(k)$ is true, then $P(k+1)$ also holds true. So, suppose that $P(k)$ is true, where $k$ is any particular but arbitrarily chosen integer where $k \geq a$. Therefore, we must show that $P(k+1)$ holds true; plugging in this value leaves us with 
+$(1 - \frac{1}{2^{2}})(1 -\frac{1}{3^{2}})$ ... $(1 -\frac{1}{(k+1)^{2}}) = \frac{(k+1) + 1}{2(k+1)}$ or $(1 - \frac{1}{2^{2}})(1 -\frac{1}{3^{2}})$ ... $(1 -\frac{1}{(k+1)^{2}}) = \frac{k + 2}{2k + 2}$. Therefore, let's assume $k = 4$, as $4 \geq 2$; plugging in this into the equation gives us $(1 - \frac{1}{4})(1 -\frac{1}{9})(1 -\frac{1}{16})(1 -\frac{1}{25}) = \frac{4 + 2}{2(4) + 2}$ or $\frac{6}{10} = \frac{6}{10}$. Therefore $P(k+1)$ holds true, and the statement $P(n) = (1 - \frac{1}{2^{2}})(1 -\frac{1}{3^{2}})$ ... $(1 -\frac{1}{n^{2}})$ is true by induction for all integers $n \geq 2$.
+
+\problem{3}
+\collab{none}
+\clearpage
+\header
+5.3 Question 7
+\item[]For  each positive integer $n$, let $P(n)$ be the property $2^{n} < (n+1)!$,
+\item[]a. Write $P(2)$. Is P(2) true?
+\item[]b. Write $P(k)$.
+\item[]c. Write $P(k + 1)$.
+\item[]d. In a proof by mathematical induction that this inequality holds for all integers $n \geq 2$, what must be shown in the inductive step?
+\item[]
+\item[]a. Let $P(n) = 2^{n} < (n+1)!$. Then, $P(2) = 2^{2} < (2+1)! = 4 < 6$, which is true.
+\item[]b. Let $P(n) = 2^{n} < (n+1)!$. Then, $P(k) = 2^{k} < (k+1)!$.
+\item[]c. Let $P(n) = 2^{n} < (n+1)!$. Then, $P(k+1) = 2^{k+1} < (k+1)!$.
+\item[]d. In the inductive step of the proof by mathematical induction, the step: Show that for all integers $k \geq 2$, if $P(k)$ is true then $P(k+1)$ is true. To do this, suppose that $P(k)$ is true, where $k$ is any particular but arbitrarily chosen integer with $n \geq 2$. Then, show that $P(k+1)$ is true.
+
+\problem{4}
+\collab{none}
+\clearpage
+\header
+5.4 Question 25
+\item[]Imagine a situation in which eight people, numbered consecutively 1 - 8, are arranged in a circle. Starting from person #1, every second person in the circle is eliminated. The elimination process continues until only one person remains. In the first round, the people numbered 2, 4, 6, and 8 are eliminated, in the second round the people numbered 3 and 7 are eliminated, and in the third round person #5 is eliminated. So after the third round only person #1 remains.
+\item[]a. Given a set of sixteen people arranged in a circle and numbered, consecutively 1 - 16, list the numbers of the people who are eliminated in each round if every second person is eliminated and the elimination process continues until only one person remains. Assume that the starting point is person #1.
+\item[]b. Use mathematical induction to prove that for all integers $n \geq 1$, given any set of $2^{n}$ people arranged in a circle and numbered consecutively 1 through through $2^{n}$, if one starts from person #1 and goes repeatedly around the circle successively eliminating every second person, eventually only person #1 will remain.
+\item[]c. Use the result of part (b) to prove that for any non-negative integers $n$ and $m$ with $2^{n} \leq 2^{n} + m < 2^{n+1}$, if $r = 2^{n} = m$, then given any set of $r$ people arranged in a circle and numbered consecutively 1 through $r$, if one starts from person #1 and goes repeatedly around the circle successively eliminating every second person, eventually only person $(2m + 1)$ will remain.
+\item[]
+\item[]a. Given 16 people in the circle, the elimination process would proceed as follows: in the first round, people numbered 2, 4, 6, 8, 10, 12, 14, and 16 are eliminated; in the second round people numbered 3, 7, 11, and 15 are eliminated; in the third round people numbered 5 and 13 are eliminated; in the fourth and final round, the person numbered 9 is eliminated leaving the person numbered 1 remaining.
+\item[]b.Let $P(n) = 2^{n} - 2^{(n-1)} - 2^{(n-2)}- ... - 2^{0}$ for $n \geq 1$. First, we must show that $P(1) = 1$ is true; to do this plug in one into the equation: $P(1) = 2^{1} - 2^{0} = 2 - 1$ or 1 = 1. Therefore $P(1)$ is true. Next, we must show that for all integers $k \geq 1$, if $P(k)$ is true then $P(k+1)$ is also true. Therefore, let's suppose that $P(k)$ is true, where $k$ is any particular but arbitrarily chosen integer where $k \geq 1$. To prove that $P(k+1)$ is true, we plug this value into the equation: $P(k+1) = 2^{k+1} - 2^{k} - 2^{k-1} - ... - 2^{0}$. Let's suppose that $k = 3$, as $3 \geq 1$. Using this value for $k$ leads us to the following: $P(3+1) = 2^{3+1} - 2^{3} - 2^{3-1} - 2^{3-2} - 2^{0}$ or $P(4) = 2^{4} - 2^{3} - 2^{2} - 2^{1} - 2^{0} $ or 1 = 1. Therefore, $P(k + 1)$ holds true, and the statement $P(n) = 2^{n} - 2^{(n-1)} - 2^{(n-2)}- ... - 2^{0}$ for $n \geq 1$ is true by induction.
+
+\problem{4(cont).}
+\collab{none}
+\clearpage
+\header
+\item[]c. Again, let $P(n) = P(n) = 2^{n} - 2^{(n-1)} - 2^{(n-2)}- ... - 2^{0}$ for $n \geq 1$; in part b. we showed that the basis steps, $P(n)$ and $P(k + 1)$ are both true. From this, we must use strong induction to prove that given $2^{n} \leq 2^{n} + m < 2^{n+1}$, where $m$ and $n$ are any non-negative integers, (2$m$ + 1) people will remain given any set of $r$ people, where $r = 2^{n}$. First, we must show that for all integers $k \geq 1$, if $P(i)$ is true for all integers i from 0 through $k$, then $P(k + 1)$ is also true. To do this let $k$ be any integer with $k \geq 1$ and suppose that $s_m = 2m + 1$ for all integers $i$ with $0\leq i\leq k$. We must therefore show that $s_{m+1} = 2(m+1) + 1$; since $k \geq 1$, $k+1 \geq 1$ must also be true. Therefore, plugging in this value into $P(n)$ gives us $P(n) = 2^{2m + 2} - 2^{(2m+1)} - 2^{(2m)}- 2^{2m-1} - 2^{0}$. Supposing that $m = 1$, as $ \geq 1$, gives us the value 1 = 1. Therefore, by proof of strong induction, for any non-negative integers only person $(2m+1)$ will remain.
+
+
+\end{document}
