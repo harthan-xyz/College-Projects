@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{fasy-hw}
+
+\author{Joshua Harthan}
+\problem{1}
+\begin{document}
+Compute the probability distribution, expectation, and variance of the following random variables:
+\item[]1.1
+\item[]The number of heads when flipping a top-heavy coin three times, where the probability of flipping a head is 75\%. (Heads = H = 1; Tails = T = 0).
+
+The probability of landing heads for one flip is .75, while the probability of landing tails for one flip is .25 based off the information given. Since we're interested in the number of heads in three flips, we're interested in the subset 
+$S = \{(HHH),(HHT),(HTH),(THH),(HTT),(THT),(TTH),(TTT)\}$. The probability of flipping three heads is : .75*.75*.75 = .421875, the probability of flipping two heads is: .75*.75*.25 = .140625, the probability of flipping one head is .75*.25*.25 = .046875, and the probability of flipping no heads is .25*.25*.25 = .015625. So, flipping this coin three times leads to the probability distribution: HHH = .421875, HHT = .140625, HTH = .140625, THH = .140625, HTT = .046875, THT = .046875, TTH = .046875, and TTT = .015625. 
+\item The expectation of flipping the coin three times can be calculated from P(H = 0) = .015625, P(H = 1) = .140625, P(H = 2) = .421875, and P(H = 3) = .421875. To get the expected value, we multiply these probabilities by the number of heads and them up: (.015625 * 0) + (.140625 * 1) + (.421975 * 2) + (.421875 * 3) = 2.25. Therefore, if you were to flip this weighted coin three times, you'd be expected to get 2.25 heads. 
+\item To calculate the variance, we use $E[X] = .75$ and therefore $E[X^{2}] = 1^{2}*.75+0^{2}*.25 = .75$. From here, we get $Var(X) = E[X^{2}] -(E[X])^{2} = .75 - .75^{2} = .1875$. Therefore the variance of flipping the coin one time is .1875; since the coin is flipped three times we multiply this value by three to get the variance of the unfair coin flipped three times to be .5625.
+
+\problem{1(cont.)}
+\collab{none}
+\clearpage
+\header
+Compute the probability distribution, expectation, and variance of the following random variables:
+\item[]1.2
+\item[]Multiplying the result of rolling two dice.
+
+The probability of rolling a certain number on one die is $\frac{1}{6}$, so the probability of rolling a certain combination of the two dice is $\frac{1}{6} \times \frac{1}{6} = \frac{1}{36}$. But since values can be repeated, these values have a higher probability than those that only appear once. Since we are multiplying the values of the dice to each other, we are interested in the subset with values $S = \{(1,1)= 1, (1,2) = 2, (1,3) = 3, (1,4) = 4, (1,5) = 5, (1,6) = 6, (2,1) = 2, (2,2) = 4, (2,3) = 6, (2,4) = 8, (2,5) = 10, (2,6) = 12, (3,1) = 3, (3,2) = 6, (3,3) = 9, (3,4) = 12, (3,5) = 15, (3,6) = 18, (4,1) = 4, (4,2) = 8, (4,3) = 12, (4,4) = 16, (4,5) = 20, (4,6) = 24, (5,1) = 5, (5,2) = 10, (5,3) = 15, (5,4) = 20, (5,5) = 25, (5,6) = 30, (6,1) = 6, (6,2) = 12, (6,3) = 18, (6,4) = 24, (6,5) = 30, (6,6) = 36\}$. So rolling the dice and multiplying their values leads to the probability distribution: 1 = .0278, 2 = .0556, 3 = .0556, 4 = .0833, 5 = .0278, 6 = .1111, 8 = .0556, 9 = .0278, 10 = .0556, 12 = .1111, 15 = .0556, 16 = .0278, 18 = .0556, 20 = .0556, 24 = .0556, 25 = .0278, 30 = .0556, and 36 = .0278.
+\item The expectation of rolling the dice can be calculated from the value of the dice rolled, and multiplying them by their probabilities of appearing, adding each value together. Therefore, we get (.0278 * 1) + (.0556 * 2) + (.0556 * 3) + (.0833 * 4) + (.0278 * 5) + (.1111 * 6) + (.0556 * 8) + (.0278 * 9) + (.0556 * 10) + (.1111 * 12) + (.0556 * 15) + (.0278 * 16) + (.0556 * 18) + (.0556 * 20) + (.0556 * 24) + (.0278 * 25) + (.0556 * 30) + (.0278 * 36) = 12.1186. Therefore, if you were to multiply the values of two dice, the expected value will be 12.1186.
+\item To calculate the variance of the dice rolls, we add all the possible values and divide this number by 36. Therefore, $E[X] = \frac{469}{36} = 13.0278$. We do the same to solve for $E[X^{2}]$ by squaring each possible value and then dividing this value by 36. Therefore, $E[X^{2}] = \frac{9065}{36} = 251.806$. Solving for variance, we get 251.806 - $13.0278^{2}$ = 82.0826. Therefore, the variance of multiplying the result of rolling two dice is 82.0826.
+
+\problem{2}
+\collab{none}
+\clearpage
+\header
+Start with the plane and drawn straight lines on that plane. Prove, in your own words, that it is possible to two-color this map.
+\item[]This map is possible to two-color by induction. If we are given a plane with n lines, and this plane is already two-colored, we can add (n + 1) lines anywhere on the plane and still have the map to be two-colored. To do this, draw the (n + 1) line and on only one side of the line we invert the colors to keep the two-coloring within the plane. Since this can be done for how many straight lines we add onto the plane, we can say that a plane with straight lines can always be two-colored. 
+
+\problem{3}
+\collab{none}
+\clearpage
+\header
+Use Master's Theorem to solve the following recurrence. If you use Case 1 or 3, be sure to state what epsilon is:
+\item[]1.1 T(n) = 2T(n/4) + \log n
+
+$a = 2$, $b = 4$, $f(n) = logn$,  $n^{log_b(a) - \epsilon} = n^{log_4(2) - \epsilon} = n^{.5 - \epsilon}.$  If we let $\epsilon$ be very small, = .000001, we get $n^{0} = log_b(2)$ which is greater than $\epsilon$. Therefore, from case one of Master Theorem, we get the recurrence relation $T(n) = \Theta(n^{log_4(2)})$ or $T(n) = \Theta(n^{\frac{1}{2}})$.
+
+\item[]1.2 T(n) = 5 T(n/5) + n/3
+
+$a = 5$, $b = 5$, $f(n) = n/3$, $n^{log_a(b)} = n^{log_2(2)} = n$. $f(n)$ is $\Theta (n^{log_2(2)} = \Theta (n)$, as $f(n) = (n/3)$ and f(n) O(n) and $\Omega(n)$. From the second case of Master Theorem get the recurrence relation $T(n) = (n logn)$.
+
+
+\problem{4}
+\collab{none}
+\clearpage
+\header
+Explain, in your own words, why Master's Theorem is important.
+\item[]Master's Theorem is important, as it allows us to quickly calculate the time complexity of a certain algorithm. Without the usage of Master's Theorem, we would have to determine the time complexity of an algorithm in a much slower, complicated way whereas with Master's Theorem you can more so plug in numbers and solve for the time complexity in big-$\Theta$ notation.
+
+\end{document}
