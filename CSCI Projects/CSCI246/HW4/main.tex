@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{fasy-hw}
+\usepackage{hyperref}
+
+
+\author{Joshua Harthan}
+\problem{1}
+\collab{none}
+\begin{document}
+3.1 Question 29
+\item[]Rewrite each statement without using quantifiers or variables. Indicate which are true and which are false, and justify your answers.
+\item[]Let the domain the domain of $x$ be the set of geometric figures in the plane, and let Square($x$) be "$x$ is a square" and Rect($x$) be "$x$ is a rectangle".
+\item[] a. $\exists x$ such that Rect($x$) $\land$ Square($x$)
+\item[] b. $\exists x$ such that Rect($x$) $\land$ $\neg$Square($x$)
+\item[] c. $\forall x$, Square($x$) $\implies$ Rect($x$)
+\item[] a. There are rectangles that can also be classified as squares. This statement is true, as squares are defined to be a figure with four equal, straight sides and four square angles. Rectangles are defined as a figures with four straight sides with four square angles. Since this statement is stating that there exists some rectangle that can be classified as a square, and considering a figure that has four equal, straight sides and four square angles can be defined as both a rectangle (four straight sides and square angles) and a square (four equal, straight sides and square angles), there exists a a rectangle that can also be classified as a square.
+\item[] b. There exists rectangles that can not be considered squares. This statement is also true, as squares are defined to be a figure with four equal, straight sides and four square angles. Rectangles are defined as a figures with four straight sides with four square angles. Since rectangles do not have the qualifier of having equal sides, i.e. the sides may have two parallel sides that are longer than the other two sides, there exists a rectangle that cannot be classified as a square.
+\item[] c. All squares can be classified as rectangles. This statement is true as squares are defined to be figures with four equal, straight sides and four square angles. Since squares have both the qualifiers to be classified as rectangles, having four straight sides with four square angles, all squares can be classified as rectangles. 
+
+
+\problem{2}
+\collab{none}
+\clearpage
+\header
+3.2 Question 38
+\item[]True or false? All occurrences of the letter $u$ in \textit{Discrete Mathematics} are lowercase. Justify your answer.
+\item[]To determine whether this statement is true or false, we can take the negation of this statement and determine the answer. So, consider the statement: All occurrences of the letter $u$ in \texit{Discrete Mathematics} are uppercase. However, this is not true, as there are no occurrences of the letter $u$ in the words \texit{Discrete Mathematics}. Since this statement is false, the statement "All occurrences of the letter $u$ in \textit{Discrete Mathematics} are lowercase." must be true by negation. Therefore, the statement "All occurrences of the letter $u$ in \textit{Discrete Mathematics} are lowercase." is true.
+
+
+\problem{3}
+\collab{none}
+\clearpage
+\header
+3.2 Question 47
+\item[]The computer scientists Richard Conway and David Gries once wrote:
+\item[]"The absence of error messages during translation of a computer program is only a necessary and not a sufficient condition for reasonable [program] correctness."
+\item[]Rewrite this statement without using the words \textit{necessary} or \textit{sufficient}.
+\item[]Reasonable program correctness is necessitated by error messages during translation of a computer program, not essentially a result of it.
+
+
+
+\problem{4}
+\collab{none}
+\clearpage
+\header
+3.4 Question 34
+\item[]A single conclusion follows when all the given premises are taken into consideration, but it is difficult to see because the premises are jumbled up. Reorder the premises to make it clear that a conclusion follows logically, and state the valid conclusion that can be drawn.
+\item[]1. All writers who understand human nature are clever.
+\item[]2. No one is a true poet unless he can stir the human heart.
+\item[]3. Shakespeare wrote \textit{Hamlet}.
+\item[]4. No writer who does not understand human nature can stir the human heart.
+\item[]5. None but a true poet could have written \textit{Hamlet}.
+\item[]
+\item[]We can reorder the statements as: 
+\item[]3.: Shakespeare wrote \textit{Hamlet}.
+\item[]5.: None but a true poet could have written \textit{Hamlet}.
+\item[]2.: No one is a true poet unless he can stir the human heart.
+\item[]4.: No writer who does not understand human nature can stir the human heart.
+\item[]1.: All writers who understand human nature are clever.
+\item[]Based off these statements, we can draw the conclusion that Shakespeare is clever from the statement that he understands human nature; he understands human nature from being a true poet; and he is a true poet as he has written \textit{Hamlet}, from the ordering of the above statements.
+
+\problem{5}
+\collab{none}
+\clearpage
+\header
+\item[]Does big-O define an equivalence relation (reflexive, symmetric, transitive)?
+For the properties it satisfies, prove it. For the properties it does not satisfy, explain why that property is not satisfied.
+\item[]
+\begin{proof}
+    \caption{Reflexive:}
+        \item[]Let $f(x)$ and $g(x)$ be functions of x $\in \reals_+$. Then $f(x)$ is O($g(x)$) provided there are positive constants $c$ and $n$ $\in \mathbb R_+$ such that $	\forall$ values of $x \geq n, f(x) \leq cg(x)$ by definition. For any $f(x)$ that allows this definition, if $f(x)$ is said to be O($f$), we can say that O($f$) is reflexive for that chosen $f(x)$. Let $f(x)$ be an arbitrarily chosen function that follows the definition given, and choose values of $c$ = 0 and $n$ = 1, specifically chosen integers. From this, we have $0 \leq f(x) \leq nf(x)$ for all $x \geq c$, therefore following the definition given. Therefore, O($f$) is reflexive and O is reflexive.
+\end{proof}
+
+\begin{proof}
+    \caption{Symmetric:}
+        \item[]Let $f(x)$ and $g(x)$ be functions of x $\in \reals_+$. Then $f(x)$ is O($g(x)$) provided there are positive constants $c$ and $n$ $\in \mathbb R_+$ such that $	\forall$ values of $x \geq n, f(x) \leq cg(x)$ by definition. Let $f = O(g)$ and $g = O(f)$ where $\exists$ constants $i$ and $j$ $\in \reals$, where $x \leq i$ and $x \leq j$ for all values of $i$ and $j$. Let $f(x)$ and $g(x)$ be arbitrarily chosen functions that follow the definition given, and choose values $i$ = 1 and $j$ = 2, specifically chosen integers. We cannot say $if(x)$ = $jg(x)$ based of these values given, and therefore cannot say $jg(x)$ = $if(x)$. Therefore, O($f$) and O($g$) are not symmetric by definition, and O is not symmetric. 
+\end{proof}
+
+\begin{proof}
+    \caption{Transitive:}
+        \item[]Let $f(x)$ and $g(x)$ be functions of x $\in \reals_+$. Then $f(x)$ is O($g(x)$) provided there are positive constants $c$ and $n$ $\in \mathbb R_+$ such that $	\forall$ values of $x \geq n, f(x) \leq cg(x)$ by definition. Let $f = O(g)$, $g = O(h)$, and $h = O(f)$ where $\exists$ constants $a, b,$ and $c$ $\in \reals$, where $x \leq a$, $x \leq b$, and $x \leq c$ for all values of $a,b,$ and $c$. Let $f(x)$, $g(x)$ and $h(x)$ be arbitrarily chosen functions that follow the definition given, and let $a,b,$ and $c \in \reals$. If $af(x) = bg(x)$ and $bg(x) = ch(x)$, $af(x)$ must be equal to $ch(x)$ by the definition of transitivity. Therefore $f = O(g)$, $g = O(h)$, and $h = O(f)$ is transitive by definition and O is transitive.
+\end{proof}
+
+
+\problem{6}
+\collab{none}
+\clearpage
+\header
+\item[]Prove or disprove each of the following statements:
+\item[]a. The function $f(x)$ = $2x^{2}$ is O($4x$).
+\item[]b. The function $g(x)$ = $3x$ is $\Omega(x).$
+\item[]c. The function $h(x)$ = $n^{2}$ + $\log n$ is O$(n^{2})$.
+\item[]d. The function $k(x)$ = $5x^{2} + x$ is $\Theta(x)$.
+\item[]a. 
+    \begin{proof}
+        \caption{The function $f(x)$ = $2x^{2}$ is O($4x$).}
+            \item[]This statement is false as big-O notation can be expressed as $f$ = O($g$) where $f$ can grow at most as fast as $g$, i.e. O($g$) is the upper bound of $f$. By this definition, in this case $f(x)$ = $2x^{2}$, $f(x)$ is most as fast as $2x^{2}$. Assuming our value for our big-O function is true, it can be expressed as $c\times 4x$ for some constant $c$. Since there is no possible constant that makes $c\times 4x$ to be greater than $2x^{2}$, the statement "The function $f(x)$ = $2x^{2}$ is O($4x$)" is false.
+    \end{proof}
+\item[]b. 
+    \begin{proof}
+        \caption{The function $g(x) = 3x$ is $\Omega(x).$}
+            \item[]This statement is true as big-$\Omega$ notation can be expressed as $g$ = $\Omega(x)$ where $g$ can grow at least as fast as $x$, i.e. $\Omega(x)$ is the lower bound of $g$. By this definition, in this case $g(x) = 3x$, $g(x)$ is at least as fast as 3x. Assuming our value for our big-$\Omega$ function is true, we can state that $\Omega(x)$ is the time complexity of $g(x) = 3x$ as, if we increase the value of $x$ to a very large amount, the 3 in front of the variable becomes negligible. Therefore, the statement "The function $g(x) = 3x$ is $\Omega(x).$" is true.
+    \end{proof}
+\item[]c. 
+    \begin{proof}
+        \caption{The function $h(x)$ = $x^{2}$ + $\log x$ is O$(x^{2})$.}
+            \item[]This statement is true as big-O notation can be expressed as $h$= O($g$) where $h$ can grow at most as fast as $g$, i.e. O($g$) is the upper bound of $h$. Since in this case $h(x)$ = $x^{2}$ + $\log x$, $h(x)$ is most as fast as $x^{2}$ as, as we increase $x$ to a very large amount, $\log x$ becomes negligible. Therefore, the statement "The function $h(x)$ = $x^{2}$ + $\log x$ is O$(x^{2})$." is true.
+    \end{proof}    
+\item[]d. 
+    \begin{proof}
+        \caption{The function $k(x)$ = $5x^{2} + x$ is $\Theta(x)$.}
+            \item[]This statement is false as big-$\Theta$ notation expresses that two functions growing asymptotically at the same speed have a constant difference, i.e. big-$\Theta$ notation describes the lower and upper bound of the given function $k(x)$. Therefore, big-$\Theta$ notation is expressed in the high order terms without leading constants. Since in this case $k(x) = 5x^{2} + x$, we can drop the constants and lower terms to get the big-$\Theta$ value to be $\Theta(x) = x^{2}$. Therefore, the statement "The function $k(x)$ = $5x^{2} + x$ is $\Theta(x)$." is false. 
+    \end{proof}
+
+\problem{7}
+\collab{none}
+\clearpage
+\header
+\item[]a. Consider the map of the continental US on Page 5. Why can we color Utah and New Mexico the same color, even though the two states have a common vertex?
+\item[]b. Again, looking at the map of the continental US on Page 5, explain why Michigan does not satisfy the conditions for the four color theorem.
+\item[]c. Explain why we an omit the states of Hawaii and Alaska in order to construct a four-coloring of the states in the USA.
+\item[]d. Is the following statement TRUE or FALSE? Explain. Four colors are necessary to color all maps.
+\item[]
+\item[]a. We can color Utah and New Mexico the same color, as it allows borders that meet at a vertex to be only up to 4 colors, as opposed to coloring the touching states as possibly much more colors.
+\item[]b. Michigan doesn't satisfy the conditions for the four color theorem as it has separated parts of the same state. The four color theorem requires the states to be in one piece, therefore Michigan doesn't satisfy this theorem.
+\item[]c. We can omit both Hawaii and Alaska in order to construct a four-coloring of the states of the USA, as both Hawaii and Alaska both do not share a border with any other state in the USA. Since they don't share a border, their coloring is prevalent to the four color theorem.
+\item[]d. False. The maximum amount of different colors for borders is four, but some maps only require 3 or less. Since not all maps need four colors, this statement is false.
+
+\problem{8}
+\collab{none}
+\clearpage
+\header
+\item[]Charles Sanders Peirce is a 19th century philosopher, mathematician, and logician who is known most for combining aspects of logic and philosophy into a philosophical movement called pragmatism. Peirce is also known for expanding on the the theory of relations that Augustus De Morgan had posed, as well as proving, through boolean algebra, the possibility of the logical NOR. Since logic is firmly rooted in computing, these discoveries made by Peirce are essential in computer logic and science utilized today.
+\item[]\url{https://en.wikipedia.org/wiki/Charles_Sanders_Peirce}
+\item[]\url{https://en.wikipedia.org/wiki/Pragmatism}
+
+
+\problem{Bonus Question}
+\collab{none}
+\clearpage
+\header
+\item[]If you want to make a multicolored quilt where you have none of the same colors touching each other, you can use the four color theorem to create such a multicolored quilt.
+
+
+\end{document}
