@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage{fasy-hw}
+
+\author{Joshua Harthan}
+\problem{1}
+\collab{Michael Valentino-Manno}
+\begin{document}
+4.3 Question 33
+\item[]Can there be a combination of quarters, dimes, and nickels that add up to \$4.72? 
+\item[]Let all of the denominations of coins be represented by integers $Q$, $D$, and $N$. $Q$(quarters) = 25, $D$(dimes) = 10, and $N$(nickels) = 5, when \%5 all gives a value of 0. Let the desired value be a integer $A$, where $A$ = 472.  $A$, when \%5 however gives a value of 2. Since all the denominations of coins give a value of 0 when \%5 and 472 gives a value of 2 when \%5, by the transitive property which states that if some integer $x$ is divisible by an integer $y$, and the same integer $y$ is divisible by some integer $z$, then the integer $x$ is divisible by the integer $z$, 472 cannot be made up of combinations of 5, 10, or 25.
+
+\problem{1}
+\collab{Michael Valentino-Manno}
+\clearpage
+\header
+4.3 Question 34
+\item[]Can there be a combination of fifty coins of pennies, dimes, and quarters that add up to \$3?
+\item[]If we use $x$ to represent the number of pennies, $y$ to represent the number of dimes, and $z$ to represent the number of quarters, we can write the following equation to represent adding the total number of coins to equal fifty:
+\item[]\textbf{(1)}$ x + y + z = 50 $         
+\item[]Using these same variables, we can also write the following equation to represent the value of each coin adding up to a value of \$3, which when put in terms of coins has a value of 300:
+\item[]\textbf{(2)}$ 1x + 10y + 25z = 300 $
+\item[] If we solve for the integer $x$ in \textbf{(1)}, we get the equation $x = 50 - y - z$. Plugging in this value of $x$ into equation \textbf{(2)}, we get the equation $(50 - y - z) + 10y + 25z = 300$, which simplifies into $9y + 24z = 250$. If we let these values be integers, with the value of dimes being $a = 9$, the value of quarters being $b = 24$, and the value we are solving for be $c = 250$, we find that $a$ and $b$ are able to be divided evenly by three (i.e. $a$ and $b$ \%3 = 0). We also find that $c$ is not evenly divisible by 3, with 250 \%3 = 1. Since both $a$ and $b$ \%3 equals 0 and $c$ \%3 equals 1, by the transitive property which states that if some integer $x$ is divisible by an integer $y$, and the same integer $y$ is divisible by some integer $z$, then the integer $x$ is divisible by the integer $z$, there is no combination of fifty coins of pennies, dimes and quarters that add up to a value of \$3.
+
+\problem{2}
+\collab{Michael Valentino-Manno}
+\clearpage
+\header
+4.4 Question 15
+\item[] Considering that January 1, 2000 was a Saturday and 2000 was a leap year, what day of the weak will January 1, 2050 be?
+\item[]Consider the normal amount of days in a year has a value of 365, and the amount of days in a leap year has a value of 366. Since leap years only occur every four years, and the time span we are interested in is fifty years, the total number of leap years occurring in this time equals 50/4 = 12.5 or approximately 13 leap years, if we take into account that 2000 was also a leap year. Considering that there are 37 years that are not leap years, and 365 days in a non leap year, we can multiply these numbers together to get the total number of days in these years, equaling the number 13505. If we take the number of years that are leap years, 13, and multiply this with the number of days within a leap year, 366, we get a value of 4758. Adding these two values together, we have the total number of days within this time span, a value of 18263 days. Taking this number of days 18263\%7 to determine the number of days that occur past Saturday, gives a value 0, since there are 7 days in a week. This value tells us the amount of days that will occur past the original date of January 1, 2000 and will help determine which day of the week the date January 1, 2050 will occur. Since we got a value of 0 for the modulus, the number of days past the day of the week will have a remainder of 0. This means that the day January 1, 2050 will also occur on a Saturday.
+
+\problem{3}
+\collab{none}
+\clearpage
+\header
+4.4 Question 35
+\item[]Prove that the fourth power of any integer has the form $8m$ or $8m+1$ for some integer $m$.
+\item[]Since we are to prove that any integer has the form $8m$ or $8m+1$ Suppose $e$ is an even integer and $o$ is an odd integer. By the quotient-remainder which states that, from the book \textit {Discrete Mathematics: An Introduction to Mathematics Researching Brief Edition} by Susanna S. Epp on page 144:
+\item[] Given any integer $n$ and positive integer $d$, there exists unique integers $q$ and $r$ such that: 
+$$
+n = dq + r \; and \; 0 \leq r < d \; ,
+$$
+\item[]for some integer $q$, we can write $e$ as 4$q$ and 4$q$ + 2, since $e$ is even, and $o$ as 4$q$ + 1 and 4$q$ + 3. Therefore, there are two cases for both $e$ and $o$, for which we must solve for. For the cases of e:
+\item[]Case 1 : (e = 4q for an integer $q$)
+$$\item[]e^{4} = (4q)^{4}$$
+$$= 4q \times 4q \times 4q \times 4q$$
+$$ = 256q^{4}$$
+$$ = 8(32q^{4}) $$
+\item[]If we let $m$ = 32$q^{4}$, and considering that 32 and $q$ are integers, we can substitute this value into the equation:
+$$
+e^{4} = 8m \; where \; m \; is \; an \; integer
+$$
+\item[]Case 2 : (e = 4q + 2 for an integer $q$)
+$$\item[]e^{4} = (4q+2)^{4}$$
+$$= (4q + 2) \times (4q + 2) \times (4q + 2) \times (4q + 2)$$
+$$ = 256q^{4} + 512q^{3} + 384q^{2} + 128q + 16$$
+$$ = 8(32q^{4} + 64q ^{3} + 48q^{2} + 16q + 2) $$
+\item[]If we let $m$ = $32q^{4} + 64q ^{3} + 48q^{2} + 16q + 2$, and considering that 32, 64, 48, 16, 2 and $q$ are integers, we can substitute this value into the equation:
+$$
+e^{4} = 8m \; where \; m \; is \; an \; integer
+$$
+
+\problem{3 (cont.)}
+\collab{none}
+\clearpage
+\header
+\item[]Case 3 : (o = 4q + 1 for an integer $q$)
+$$\item[]o^{4} = (4q+1)^{4}$$
+$$= (4q + 1) \times (4q + 1) \times (4q + 1) \times (4q + 1)$$
+$$ = 256q^{4} + 256q^{3} + 96q^{2} + 16q + 1$$
+$$ = 8(32q^{4} + 32q ^{3} + 12q^{2} + 2q) + 1 $$
+\item[]If we let $m$ = $32q^{4} + 32q ^{3} + 12q^{2} + 2q$, and considering that 32, 12, 2 and $q$ are integers, we can substitute this value into the equation:
+$$
+o^{4} = 8m + 1\; where \; m \; is \; an \; integer
+$$
+\item[]Case 4 : (o = 4q + 3 for an integer $q$)
+$$\item[]o^{4} = (4q+3)^{4}$$
+$$= (4q + 3) \times (4q + 3) \times (4q + 3) \times (4q + 3)$$
+$$ = 256q^{4} + 768q^{3} + 864q^{2} + 432q + 81$$
+$$ = 8(32q^{4} + 96q ^{3} + 108q^{2} + 54q + 10) + 1 $$
+\item[]If we let $m$ = $32q^{4} + 96q ^{3} + 108q^{2} + 54q + 10$, and considering that 32, 96, 108, 54, 10 and $q$ are integers, we can substitute this value into the equation:
+$$
+o^{4} = 8m + 1\; where \; m \; is \; an \; integer
+$$
+
+
+\problem{4}
+\collab{none}
+\clearpage
+\header
+9.2 Question 10
+\item[] There are three routes from North Point to Boulder Creek, two routes from Boulder Creek to Beaver Dam, two routes from Beaver Dam to Star Lake and four routes directly from Boulder Creek to Star Lake. 
+\item[]a. How many routes from North Point to Star Lake pass through Beaver Dam?
+\item[]b. How many routes from North Point to Star Lake bypass Beaver Dam?
+
+\item[]a. Considering that North Point must pass Boulder Creek in order to get to Beaver Dam, we must take into account the three pathways that go from North Point into Boulder Creek. Taking the pathways from Boulder Creek into Beaver Dam, the two pathways must also be taken into account as this is the only pathways through Beaver Dam, leaving us with 3 x 2 = 6 possible pathways. Going from Beaver Dam to Star Lake gives us two pathways, in which we multiply our possible 6 pathways by in order to get 3 x 2 x 2 = 12 possible pathways. Therefore, the total number of routes from North Point to Star Lake through Beaver Dam is twelve possible routes.
+
+\item[]b. Considering that North Point must pass through Boulder Creek in order to get to Star Lake, we must take into account the three pathways that go from North Point into Boulder Creek. Taking the pathways from Boulder Creek into Star Lake, the pathways that bypass Beaver Dam, gives us a value of four pathways. Using these values of pathways gives us 3 x 4 = 12 possible pathways. Therefore, the total number of routes from North Point to Star Lake that Bypass Beaver Dam is twelve possible routes.
+
+\problem{5}
+\collab{none}
+\clearpage
+\header
+9.6 Question 7
+\item[] 
+Assuming that $m$, $n$, $k$, and are integers, justify the equation:
+$$
+\binom{n+3}{n+1} = \frac{(n+3)(n+2)}{2}, for \; n  \geq -1 $$
+\item[]Using the Theorem 9.5.1 on page 449 found in the book \textit {Discrete Mathematics: An Introduction to Mathematics Researching Brief Edition} by Susanna S. Epp, the following formula can be used to describe the combination we are justifying: 
+$$\binom{n}{r} = \frac{n!}{r!(n - r)!}$$
+\item[]Plugging in our values for the problem we are solving for into this formula gives us:
+$$\binom{n+3}{n+1} = \frac{(n+3)!}{(n+1)!((n+3)-(n+1))!} $$
+\item[]Factoring out this equation results in the following equations:
+$$\frac{(n+3)(n+2)(n+1)!}{(n+1)!((n+3)-(n+1))!}$$
+\item[]We can further simplify this equation by recognizing that the $(n+1)!$ can be cancelled in both the numerator and denominator, as they are both multiplied in the numerator and denominator of this fraction. This leaves us with a value of $(n+3)(n+2)$ in the numerator, as the $(n+1)!$ has been cancelled out:
+$$\frac{{(n+3)}(n+2)}{((n+3)-(n+1))!}$$
+\item[]We can also simplify the equation $(n+3) - (n+1)$ found in the denominator, to give us a result of 2, as the $n$'s cancel out and 3 - 1 = 2, leaving us with a 2!. Since $2! = 2 \times 1 = 2$, this leaves us with a value of 2 in the denominator. Therefore, once we have simplified the equation, it has been found that:
+
+$$\frac{(n+3)(n+2)}{2!} = \frac{(n+3)(n+2)}{2}$$
+
+\problem{6}
+\collab{none}
+\clearpage
+\header
+9.6 Question 32
+\item[] Find the coefficient of $u^{16}v^{4}$ in $(u^{2} - v^{2})^{10}$ when the expression is expanded by the binomial theorem.
+\item[]By the 9.6.2 Binomial Theorem, found on page 468 in the book \textit {Discrete Mathematics: An Introduction to Mathematics Researching Brief Edition} by Susanna S. Epp, given as:
+$$
+(a+b)^{n} =  \sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^{k} = a^{n} + \binom{n}{1}a^{n-1}b^{1} + \binom{n}{2}a^{n-2}b^{2} + \; ... \; + \binom{n}{n-1}a^{1}b^{n-1} + b^{n} \; ,
+$$
+\item[]we can write our expression, $(u^{2} - v^{2})^{10}$, as a binomial expansion as follows:
+$$
+(u^{2}-v^{2})^{10} =  \sum_{k=0}^{10}\binom{10}{k}u^{2(10-k)}(-v)^{2k}
+$$
+\item[]Expanding this sum out results in the following summation: 
+$$
+\sum_{k=0}^{10}\binom{10}{k}u^{2(10-k)}(-v)^{2k} = u^{20} + \binom{10}{1}u^{18}v^{2} + \binom{10}{2}u^{16}v^{4} + \binom{10}{3}u^{14}v^{6} + \binom{10}{4}u^{12}v^{8} + \binom{10}{5}u^{10}v^{10} + \binom{10}{6}u^{8}v^{12} $$ $$ + \binom{10}{7}u^{6}v^{14} + \binom{10}{8}u^{4}v^{16} + \binom{10}{9}u^{2}v^{18} + v^{20}
+$$
+\item[]From this summation, it can be seen that the coefficient for $u^{16}v^{4}$ is $\binom{10}{2}$, which can has a value of 45, when using the formula:
+$$
+\binom{n}{r} = \frac{n!}{r!(n - r)!}, 
+$$
+\item[]taken from Theorem 9.5.1 on page 449 found in the book \textit {Discrete Mathematics: An Introduction to Mathematics Researching Brief Edition} by Susanna S. Epp. When plugging in our values for the variables $r$ and $n$, we get:
+$$\binom{10}{2} = \frac{10!}{2!(10 - 2)!} = \frac{10\times9}{2\times1} = 45$$
+\item[]Therefore the coefficient of $u^{16}v^{4}$ in $(u^{2} - v^{2})^{10}$ is 45.
+
+\problem{7}
+\collab{none}
+\clearpage
+\header
+Ada Lovelace is an English mathematician during the 19th century, who was a proponent of and worked on a mechanical, early computer known as the Analytical Engine proposed by Charles Babbage in 1837. Seeing potential in the early computer, Lovelace created an algorithm that was to be run by the Analytical Engine, one of the first of its kind. Because of this, Lovelace is known as one of the first computer programmers. However, development of the computer was not seen, and the construction of the machine never happened due to inadequate funding for the project. Lovelace's algorithm she developed for the machine, an algorithm to compute Bernoulli numbers, is still regarded as one of the first computer programs despite never being able to be tested on the Analytical Engine.
+
+\end{document}
