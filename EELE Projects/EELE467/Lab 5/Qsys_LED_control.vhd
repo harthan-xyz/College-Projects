@@ -25,7 +25,7 @@ architecture Qsys_LED_control_arch of Qsys_LED_control is
 	signal reg0 : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(0,32));
 	signal reg1 : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(50000000, 32));
 	signal reg2 : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(0,32));
-	signal reg3 : std_logic_vector(31 downto 0) := "00000000000000000000000000010000";
+	signal reg3 : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(16,32));
 
 	component LED_control is
 	 port(
