@@ -175,7 +175,9 @@ architecture LED_control_arch of LED_control is
 
 		OUTPUT_LOGIC : process (current_state)
 			begin
-				if (LED_Display_On = '0') then
+			if (HS_LED_control = '1') then
+				LED(6 downto 0) <= LED_reg(6 downto 0);
+				elsif (LED_Display_On = '0') then
 					case(current_state) is
 			        when S0 => LED(6 downto 0) <= LED0_register; 
                  when S1 => LED(6 downto 0) <= LED1_register;	  
