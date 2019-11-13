@@ -59,7 +59,8 @@ add_button "Write FF" {master_write_32 $m 0x0 0xF 0x1 0xFF}
 add_frame "Read Address"
 
 add_button "Read 0x0" {
-  master_write_32 $m 0x0 0x0 0x0 ;
+  master_write_32 $m 0x4 0x0 ;
+  master_write_32 $m 0x0 0x0 0x0;
   puts \ ;
   puts -nonewline "Address Location : " ;
   puts [master_read_32 $m 0x0 0x1] ;
@@ -78,7 +79,8 @@ add_button "Read 0x0" {
 }
 
 add_button "Read 0x1" {
-  master_write_32 $m 0x0 0x1 0x0 ;
+  master_write_32 $m 0x4 0x0 ;
+  master_write_32 $m 0x0 0x1 0x0;
   puts \ ;
   puts -nonewline "Address Location : " ;
   puts [master_read_32 $m 0x0 0x1] ;
@@ -97,7 +99,8 @@ add_button "Read 0x1" {
 }
 
 add_button "Read 0x2" {
-  master_write_32 $m 0x0 0x2 0x0 ;
+  master_write_32 $m 0x4 0x0 ;
+  master_write_32 $m 0x0 0x2 0x0;
   puts \ ;
   puts -nonewline "Address Location : " ;
   puts [master_read_32 $m 0x0 0x1] ;
@@ -116,7 +119,8 @@ add_button "Read 0x2" {
 }
 
 add_button "Read 0x3" {
-  master_write_32 $m 0x0 0x3 0x0 ;
+  master_write_32 $m 0x4 0x0 ;
+  master_write_32 $m 0x0 0x3 0x0;
   puts \ ;
   puts -nonewline "Address Location : " ;
   puts [master_read_32 $m 0x0 0x1] ;
@@ -135,7 +139,8 @@ add_button "Read 0x3" {
 }
 
 add_button "Read 0x4" {
-  master_write_32 $m 0x0 0x4 0x0 ;
+  master_write_32 $m 0x4 0x0 ;
+  master_write_32 $m 0x0 0x4 0x0;
   puts \ ;
   puts -nonewline "Address Location : " ;
   puts [master_read_32 $m 0x0 0x1] ;
@@ -154,7 +159,8 @@ add_button "Read 0x4" {
 }
 
 add_button "Read 0x5" {
-  master_write_32 $m 0x0 0x5 0x0 ;
+  master_write_32 $m 0x4 0x0 ;
+  master_write_32 $m 0x0 0x5 0x0;
   puts \ ;
   puts -nonewline "Address Location : " ;
   puts [master_read_32 $m 0x0 0x1] ;
@@ -173,6 +179,7 @@ add_button "Read 0x5" {
 }
 
 add_button "Read 0x6" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0x6 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -192,6 +199,7 @@ add_button "Read 0x6" {
 }
 
 add_button "Read 0x7" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0x7 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -211,6 +219,7 @@ add_button "Read 0x7" {
 }
 
 add_button "Read 0x8" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0x8 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -230,6 +239,7 @@ add_button "Read 0x8" {
 }
 
 add_button "Read 0x9" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0x9 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -249,6 +259,7 @@ add_button "Read 0x9" {
 }
 
 add_button "Read 0xA" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0xA 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -268,6 +279,7 @@ add_button "Read 0xA" {
 }
 
 add_button "Read 0xB" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0xB 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -287,6 +299,7 @@ add_button "Read 0xB" {
 }
 
 add_button "Read 0xC" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0xC 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -306,6 +319,7 @@ add_button "Read 0xC" {
 }
 
 add_button "Read 0xD" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0xD 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -325,6 +339,7 @@ add_button "Read 0xD" {
 }
 
 add_button "Read 0xE" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0xE 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
@@ -344,6 +359,7 @@ add_button "Read 0xE" {
 }
 
 add_button "Read 0xF" {
+  master_write_32 $m 0x4 0x0 ;
   master_write_32 $m 0x0 0xF 0x0 ;
   puts \ ;
   puts -nonewline "Address Location : " ;
