@@ -9,8 +9,6 @@ set count 0
 #set the master, open JTAG connection
 set m [lindex [ get_service_paths master] 0]
 open_service master $m
-#varible to read from specified register locations
-set A [master_read_32 $m 0x0 0x5]
 
 #add frame process that creates a frame 
 proc add_frame title {
@@ -50,6 +48,22 @@ add_button "Write 22" {master_write_32 $m 0x0 0xD 0x1 0x22}
 add_button "Write 11" {master_write_32 $m 0x0 0xE 0x1 0x11}
 add_button "Write 00" {master_write_32 $m 0x0 0xF 0x1 0x00}
 
-#add frame and button to read addresses 0x0 to 0x5
+#add frame and button to read addresses 0x0 to 0x5, writes to address that we want to read and set read bit; then reads as wanted
 add_frame "Read Address"
-add_button "Read" { puts \ ; puts $A}
+add_button "Read 0x0" {master_write_32 $m 0x0 0x0 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x1" {master_write_32 $m 0x0 0x1 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x2" {master_write_32 $m 0x0 0x2 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x3" {master_write_32 $m 0x0 0x3 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x4" {master_write_32 $m 0x0 0x4 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x5" {master_write_32 $m 0x0 0x5 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x6" {master_write_32 $m 0x0 0x6 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x7" {master_write_32 $m 0x0 0x7 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x8" {master_write_32 $m 0x0 0x8 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0x9" {master_write_32 $m 0x0 0x9 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0xA" {master_write_32 $m 0x0 0xA 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0xB" {master_write_32 $m 0x0 0xB 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0xC" {master_write_32 $m 0x0 0xC 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0xD" {master_write_32 $m 0x0 0xD 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0xE" {master_write_32 $m 0x0 0xE 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+add_button "Read 0xF" {master_write_32 $m 0x0 0xF 0x0 ; puts \ ; puts [master_read_32 $m 0x0 0x5]}
+
