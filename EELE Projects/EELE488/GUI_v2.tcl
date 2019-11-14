@@ -1,3 +1,4 @@
+#Joshua Harthan
 #include the Tk package to setup the GUI
 package require Tk
 
