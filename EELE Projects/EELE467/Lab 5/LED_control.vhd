@@ -79,8 +79,8 @@ architecture LED_control_arch of LED_control is
 	
 	--define the blinking LED component
 	component LED7 is
-		port	(clock : in std_logic;
-			 LED   : out std_logic);
+	port	(clock : in std_logic;
+		 LED   : out std_logic);
 	end component;
 	
 	--define the push button condition compoenent
@@ -157,15 +157,10 @@ architecture LED_control_arch of LED_control is
 				if (Push = '0') then
 					case (SW) is
 						when "0000" => next_state <= S0;
-					  
 						when "0001" => next_state <= S1;
-					  
 						when "0010" => next_state <= S2;
-				
 						when "0011" => next_state <= S3;
-				
-						when "0100" => next_state <= S4;	
-									
+						when "0100" => next_state <= S4;				
 						when others => next_state <= current_state;
 					end case;
 				end if;
@@ -173,19 +168,19 @@ architecture LED_control_arch of LED_control is
 
 		OUTPUT_LOGIC : process (current_state)
 			begin
-			if (HS_LED_control = '1') then
+			if (HS_LED_control = '1') then -- if in software mode, display the LED register
 				LED(6 downto 0) <= LED_reg(6 downto 0);
-				elsif (LED_Display_On = '0') then
-					case(current_state) is
-			        	  when S0 => LED(6 downto 0) <= LED0_register; 
-                			  when S1 => LED(6 downto 0) <= LED1_register;	  
-					  when S2 => LED(6 downto 0) <= LED2_register;
-					  when S3 => LED(6 downto 0) <= LED3_register;
-					  when S4 => LED(6 downto 0) <= LED4_register;
-					  when others => LED(6 downto 0) <= LED0_register;
-					 end case;
-				else
-					LED(6 downto 0) <= "000" & SW;
-				end if;
+			elsif (LED_Display_On = '0') then -- if in hardware mode, display the LED pattern based off SW
+				case(current_state) is
+			        	when S0 => LED(6 downto 0) <= LED0_register; 
+                			when S1 => LED(6 downto 0) <= LED1_register;	  
+					when S2 => LED(6 downto 0) <= LED2_register;
+					when S3 => LED(6 downto 0) <= LED3_register;
+					when S4 => LED(6 downto 0) <= LED4_register;
+					when others => LED(6 downto 0) <= LED0_register;
+				end case;
+			else -- if the button is pressed, display SW for one second
+				LED(6 downto 0) <= "000" & SW;
+			end if;
 		 end process;
 end architecture;
