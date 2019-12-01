@@ -110,7 +110,7 @@ architecture LED_control_arch of LED_control is
 	--instantiate the clock frequency generators 
 	CLOCK_GEN_1 : clock_generator port map (clk => clk, SYS_CLKs_sec => SYS_CLKs_sec, Base_rate => Base_rate, Clock_out => Clock_by_1);
 	CLOCK_GEN_2 : clock_generator port map (clk => clk, SYS_CLKs_sec => SYS_CLKs_sec, Base_rate => BASE2, Clock_out => Clock_by_2);
-	CLOCK_GEN_4	: clock_generator port map (clk => clk, SYS_CLKs_sec => SYS_CLKs_sec, Base_rate => BASE4, Clock_out => Clock_by_4);
+	CLOCK_GEN_4 : clock_generator port map (clk => clk, SYS_CLKs_sec => SYS_CLKs_sec, Base_rate => BASE4, Clock_out => Clock_by_4);
 	
 	--instantiate LED7 as continuously blinking at the base rate * 1
 	LED_7 : LED7 port map(clock => clock_by_1, LED => LED(7));
