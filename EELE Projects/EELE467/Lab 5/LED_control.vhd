@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity LED_control is
-	 port(
+   port(
         clk            : in  std_logic;                         -- system clock
         reset          : in  std_logic;                         -- system reset
         PB             : in  std_logic;                         -- Pushbutton to change state  
@@ -16,12 +16,12 @@ entity LED_control is
         Base_rate      : in  std_logic_vector(7 downto 0);      -- base transition time in seconds, fixed-point data type
         LED_reg        : in  std_logic_vector(7 downto 0);      -- LED register
         LED            : out std_logic_vector(7 downto 0)       -- LEDs on the DE10-Nano board
-    );
+        );
 end entity LED_control;
 
 architecture LED_control_arch of LED_control is
 
---define the states to be used in the state machine
+	--define the states to be used in the state machine
 	type State_Type is (S0,S1,S2,S3,S4,show_state);
 	signal current_state, next_state, previous_state : State_Type;
 	
@@ -41,66 +41,64 @@ architecture LED_control_arch of LED_control is
 	--signals to represent the various clock frequencies
 	signal clock_by_1 : std_logic;
 	signal clock_by_2 : std_logic;
-	signal clock_by_4	: std_logic;
+	signal clock_by_4 : std_logic;
 	
 	signal BASE2 : std_logic_vector(7 downto 0);
 	signal BASE4 : std_logic_vector(7 downto 0);
 	
 	--define the states to be used in the state machine
 	component state0 is
-		port (clock	: in std_logic;
-				Reset : in std_logic;
-				LED0	: out std_logic_vector(6 downto 0));
+		port (clock  : in std_logic;
+		      Reset  : in std_logic;
+		      LED0   : out std_logic_vector(6 downto 0));
 	end component;
 	
 	component state1 is
-		port (clock	: in std_logic;
-				Reset : in std_logic;
-				LED1	: out std_logic_vector(6 downto 0));
+		port (clock  : in std_logic;
+		      Reset  : in std_logic;
+		      LED1   : out std_logic_vector(6 downto 0));
 	end component;
 
 	component state2 is
-		port (clock	: in std_logic;
-				Reset : in std_logic;
-				LED2	: out std_logic_vector(6 downto 0));
+		port (clock  : in std_logic;
+		      Reset  : in std_logic;
+		      LED2   : out std_logic_vector(6 downto 0));
 	end component;
 	
 	component state3 is
-		port (clock	: in std_logic;
-				Reset : in std_logic;
-				LED3	: out std_logic_vector(6 downto 0));
+		port (clock  : in std_logic;
+		      Reset  : in std_logic;
+		      LED3   : out std_logic_vector(6 downto 0));
 	end component;
 	
 	component state4 is
-		port (clock	: in std_logic;
-				Reset : in std_logic;
-				LED4	: out std_logic_vector(6 downto 0));
+		port (clock  : in std_logic;
+		      Reset  : in std_logic;
+		      LED4   : out std_logic_vector(6 downto 0));
 	end component;
 	
 	--define the blinking LED component
 	component LED7 is
-		port	(clock: in std_logic;
-				 LED	: out std_logic);
+		port	(clock : in std_logic;
+			 LED   : out std_logic);
 	end component;
 	
 	--define the push button condition compoenent
 	component PB_condition is
 	port   (clock : in std_logic;
 	        PB_In : in std_logic;
-			  PB_out: out std_logic);
+		PB_out: out std_logic);
 	end component;
 	
 	--define the clock generator o be used
 	component clock_generator is
-	 port(
-        clk            : in  std_logic;                                                 
-        SYS_CLKs_sec   : in  std_logic_vector(31 downto 0);     
-        Base_rate      : in  std_logic_vector(7 downto 0);      
-		  Clock_out		  : out std_logic
-    );
+	 port	(clk          : in  std_logic;                                                 
+              	 SYS_CLKs_sec : in  std_logic_vector(31 downto 0);     
+              	 Base_rate    : in  std_logic_vector(7 downto 0);      
+	     	 Clock_out    : out std_logic);
 	end component;
 	
-	
+		
 	begin
 	
 	--define the base rates to be twice and four times as fast, respectively
