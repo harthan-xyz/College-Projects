@@ -179,8 +179,8 @@ architecture LED_control_arch of LED_control is
 				LED(6 downto 0) <= LED_reg(6 downto 0);
 				elsif (LED_Display_On = '0') then
 					case(current_state) is
-			        when S0 => LED(6 downto 0) <= LED0_register; 
-                 when S1 => LED(6 downto 0) <= LED1_register;	  
+			        	  when S0 => LED(6 downto 0) <= LED0_register; 
+                			  when S1 => LED(6 downto 0) <= LED1_register;	  
 					  when S2 => LED(6 downto 0) <= LED2_register;
 					  when S3 => LED(6 downto 0) <= LED3_register;
 					  when S4 => LED(6 downto 0) <= LED4_register;
