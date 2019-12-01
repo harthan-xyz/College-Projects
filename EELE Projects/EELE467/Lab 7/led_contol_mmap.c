@@ -25,7 +25,6 @@
    of the type the pointer points to.
 */
 #define HS_LED_CONTROL_OFFSET 0x0
-// Define the other register offsets here 
 #define SYS_CLKS_SEC_OFFFSET 0x1
 #define LED_REG_OFFSET 0x2
 #define BASE_RATE_OFFSET 0x3
@@ -92,24 +91,15 @@ int main()
     	printf("register addresses\n");
     	printf("**************************\n");
 	printf("hs_led_control address: 0x%p\n", hs_led_control);
-     // Print the other register addresses here
-	printf("**************************\n");
 	printf("sys_clks_sec address: 0x%p\n", sys_clks_sec);
-	printf("**************************\n");
 	printf("led_reg address: 0x%p\n", led_reg);
-	printf("**************************\n");
 	printf("base_rate address: 0x%p\n", base_rate);
-	printf("**************************\n");
     	printf("**************************\n");
     	printf("register values\n");
     	printf("**************************\n");
     	printf("hs_led_control: 0x%08x\n", *hs_led_control);
-     // Print the other register values here
-	printf("**************************\n");
 	printf("sys_clks_sec : 0x%08x\n", *sys_clks_sec);
-	printf("**************************\n");
 	printf("led_reg : 0x%08x\n", *led_reg);
-	printf("**************************\n");
 	printf("base_rate : 0x%08x\n", *base_rate);
 	printf("**************************\n");
     
@@ -129,17 +119,13 @@ int main()
         00111100
         00011000
         ... repeat
-       where 0 indicates off and 1 indicates on. This pattern repeats.
+       where 0 indicates off and 1 indicates on
        Sleep for 0.1 seconds between each pattern-step with usleep(0.1*1e6)
-
-       Extra credit will be given to the most concise (in number of lines)
-       pattern logic implementation.
        */
 	      
     signal(SIGINT, interrupt_handler); // catch the interrupt signal
     while(!interrupted)
     {
-        // pattern logic goes here...
 		*led_reg = 0x18; //00011000
        		 usleep(0.1*1e6); 
 		*led_reg = 0x3C; //00111100
