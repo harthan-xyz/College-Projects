@@ -1,4 +1,4 @@
--- Joshua Harthan
+-- Joshua Harthan, Jordan Palmer
 -- State 0 : NOP
 library IEEE;
 use IEEE.STD_Logic_1164.ALL;
