@@ -1,4 +1,4 @@
--- Joshua Harthan
+-- Joshua Harthan, Jordan Palmer
 -- ALU Component
 library IEEE;
 use IEEE.STD_Logic_1164.ALL;
