@@ -6,18 +6,19 @@ use IEEE.numeric_std.ALL;
 
 entity mux is
 	port(
-		  A	  		  : in std_logic_vector(31 downto 0);
-	     B	  		  : in std_logic_vector(31 downto 0); 
+	     A	  	 : in std_logic_vector(31 downto 0);
+	     B	  	 : in std_logic_vector(31 downto 0); 
 	     Result_High : in std_logic_vector(31 downto 0);
-		  Result_Low  : in std_logic_vector(31 downto 0);
+	     Result_Low  : in std_logic_vector(31 downto 0);
 		  
-		  SW			  : in std_logic_vector(3 downto 0); 
-		  LED 		  : out std_logic_vector(7 downto 0)
-		  );
+	     SW		 : in std_logic_vector(3 downto 0); 
+	     LED 	 : out std_logic_vector(7 downto 0)
+	     );
 end entity;
 
 architecture mux_arch of mux is
 	
+	--signal to determine register to display on LEDs
 	signal active_register : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(0,32));
 	
 	begin
