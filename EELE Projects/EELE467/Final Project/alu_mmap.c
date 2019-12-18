@@ -73,11 +73,11 @@ int main()
 
     // create pointers for each register
     int32_t *operand_a = alu_base + OPERAND_A_OFFSET;
-	  int32_t *operand_b = alu_base + OPERAND_B_OFFSET;
-	  int32_t *opcode = alu_base + OPCODE_OFFSET;
-	  int32_t *result_low = alu_base + RESULT_LOW_OFFSET;
-	  int32_t *result_high = alu_base + RESULT_HIGH_OFFSET;
-	  int32_t *status = alu_base + STATUS_OFFSET;
+    int32_t *operand_b = alu_base + OPERAND_B_OFFSET;
+    int32_t *opcode = alu_base + OPCODE_OFFSET;
+    int32_t *result_low = alu_base + RESULT_LOW_OFFSET;
+    int32_t *result_high = alu_base + RESULT_HIGH_OFFSET;
+    int32_t *status = alu_base + STATUS_OFFSET;
 
     /* display each case result, the format is as follows:
 	Case being presented
