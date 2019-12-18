@@ -6,18 +6,17 @@ use IEEE.numeric_std.ALL;
 
 entity alu is
 	port(
-		  clk			  : in std_logic;
-		  reset		  : in std_logic;
-		  A	  		  : in std_logic_vector(31 downto 0);
-	     B	  		  : in std_logic_vector(31 downto 0);
-	     Opcode 	  : in std_logic_vector(2 downto 0);
-		  
-		  Write_En	  : in std_logic;
+	     clk	: in std_logic;
+	     reset	: in std_logic;
+	     A  	: in std_logic_vector(31 downto 0);
+	     B	  	: in std_logic_vector(31 downto 0);
+	     Opcode 	: in std_logic_vector(2 downto 0);
+	     Write_En	: in std_logic;
 		  
 	     Result_High : out std_logic_vector(31 downto 0);
-		  Result_Low  : out std_logic_vector(31 downto 0);
-		  Status		  : out std_logic_vector(2 downto 0)
-		  );
+	     Result_Low  : out std_logic_vector(31 downto 0);
+	     Status	 : out std_logic_vector(2 downto 0)
+	     );
 end entity;
 
 architecture alu_arch of alu is
@@ -33,88 +32,88 @@ architecture alu_arch of alu is
 	
 	--define the states to be used in the state machine
 	component state0 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 	
 	component state1 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 
 	component state2 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 	
 	component state3 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 	
 	component state4 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 	
 		component state5 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 
 	component state6 is
-		port (A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0));
 	end component;
 	
 	component state7 is
-		port (clk		  : in std_logic;
-				reset		  : in std_logic;
-				A			  : in std_logic_vector(31 downto 0);
-				B			  : in std_logic_vector(31 downto 0);
+			  port (clk	: in std_logic;
+				reset	: in std_logic;
+				A	: in std_logic_vector(31 downto 0);
+				B	: in std_logic_vector(31 downto 0);
 		  
 				Result_High: out std_logic_vector(31 downto 0);
 				Result_Low : out std_logic_vector(31 downto 0);
-				Status	  : out std_logic_vector(2 downto 0));
+				Status	   : out std_logic_vector(2 downto 0));
 	end component;
 
 	begin
@@ -157,19 +156,19 @@ architecture alu_arch of alu is
 	OUTPUT_LOGIC : process (current_state)	
 		begin
 			if(Write_En = '1') then
-			case (current_state) is
+				case (current_state) is
 					when S0 => 
 						Result_High <= RH0;
 						Result_Low  <= RL0;
-						Status 		<= Status0;
+						Status 	    <= Status0;
 					when S1 => 
 						Result_High <= RH1;
 						Result_Low  <= RL1;
-						Status 		<= Status1;
+						Status 	    <= Status1;
 					when S2 => 
 						Result_High <= RH2;
 						Result_Low  <= RL2;
-						Status 		<= Status2;
+						Status 	    <= Status2;
 					when S3 => 
 						Result_High <= RH3;
 						Result_Low  <= RL3;
@@ -177,22 +176,22 @@ architecture alu_arch of alu is
 					when S4 => 
 						Result_High <= RH4;
 						Result_Low  <= RL4;
-						Status 		<= Status4;
+						Status 	    <= Status4;
 					when S5 => 
 						Result_High <= RH5;
 						Result_Low  <= RL5;
-						Status 		<= Status5;
+						Status 	    <= Status5;
 					when S6 => 
 						Result_High <= RH6;
 						Result_Low  <= RL6;
 					when S7 => 
 						Result_High <= RH7;
 						Result_Low  <= RL7;
-						Status 		<= Status7;
+						Status	    <= Status7;
 					when others => 
 						Result_High <= std_logic_vector(to_unsigned(0,32));
 						Result_Low  <= std_logic_vector(to_unsigned(0,32));
-						Status 		<= std_logic_vector(to_unsigned(0,3));
+						Status 	    <= std_logic_vector(to_unsigned(0,3));
 				end case;
 			end if;
 		end process;
