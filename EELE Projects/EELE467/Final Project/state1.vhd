@@ -6,15 +6,15 @@ use IEEE.numeric_std.ALL;
 
 entity state1 is
 	port(
-		  clk			  : in std_logic;
-		  reset		  : in std_logic;
-		  A			  : in std_logic_vector(31 downto 0);
-		  B			  : in std_logic_vector(31 downto 0);
+	     clk	: in std_logic;
+	     reset	: in std_logic;
+	     A		: in std_logic_vector(31 downto 0);
+	     B		: in std_logic_vector(31 downto 0);
 		  
-		  Result_High : out std_logic_vector(31 downto 0);
-		  Result_Low  : out std_logic_vector(31 downto 0);
-		  Status		  : out std_logic_vector(2 downto 0)
-		  );
+	     Result_High : out std_logic_vector(31 downto 0);
+	     Result_Low  : out std_logic_vector(31 downto 0);
+	     Status	 : out std_logic_vector(2 downto 0)
+	     );
 end entity;
 
 architecture state1_arch of state1 is 
@@ -25,22 +25,22 @@ architecture state1_arch of state1 is
 	begin
 	
 	 -- sum calculation --
-		SUM : process(clk, reset)
+	 SUM : process(clk, reset)
 		 begin
 			if (reset = '0') then
 				Sum_sign <= to_signed(0,33);
 			elsif(rising_edge(clk)) then
 				Sum_sign <= signed('0' & A) + signed('0' & B);
 			end if;
-	  end process;
+	 end process;
 	  
 	--assign the calculated value to the corresponding registers
-		Result_Low <= std_logic_vector(Sum_sign(31 downto 0));
-		Result_High <= std_logic_vector(to_unsigned(0,32));
+	Result_Low <= std_logic_vector(Sum_sign(31 downto 0));
+	Result_High <= std_logic_vector(to_unsigned(0,32));
 	
 		
 	-- negative flag (N) --
-		NEGATIVE_FLAG : process(clk, reset)
+	NEGATIVE_FLAG : process(clk, reset)
 		 begin
 			if(reset = '0') then
 				Status(1) <= '0';
@@ -51,10 +51,10 @@ architecture state1_arch of state1 is
 					Status(1) <= '0';
 				end if;
 			end if;
-		end process;
+	end process;
 
 		-- zero flag (Z) --
-		ZERO_FLAG : process (clk, reset)
+	ZERO_FLAG : process (clk, reset)
 		 begin
 			if (reset = '0') then
 				Status(0) <= '0';
@@ -65,6 +65,6 @@ architecture state1_arch of state1 is
 					Status(0) <= '0';
 				end if;
 			end if;
-		end process;
+	end process;
 		
 end architecture;
