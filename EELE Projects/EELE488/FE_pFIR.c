@@ -37,8 +37,7 @@ struct fixed_num {
 #define ENABLE_OFFSET 0x0
 #define WR_DATA_OFFSET 0x1
 #define RW_ADDR_OFFSET 0x2
-#define REGISTER_WR_DOUT_OFFSET 0x3
-#define LED_OUT_OFFSET 0x4
+#define WR_EN_OFFSET 0x3
 
 /* Driver function prototypes */
 static int pFIR_probe		(struct platform_device *pdev);
