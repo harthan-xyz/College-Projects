@@ -1,0 +1,21 @@
+ --> dataplane_ip_src_dataplane_pkg
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control/Chart --> dataplane_ip_src_Chart
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control --> dataplane_ip_src_LED_persistence_control
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control1 --> dataplane_ip_src_LED_persistence_control1
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control2 --> dataplane_ip_src_LED_persistence_control2
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control3 --> dataplane_ip_src_LED_persistence_control3
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control4 --> dataplane_ip_src_LED_persistence_control4
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control5 --> dataplane_ip_src_LED_persistence_control5
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control6 --> dataplane_ip_src_LED_persistence_control6
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver/LED_persistence_control7 --> dataplane_ip_src_LED_persistence_control7
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/LED_Driver --> dataplane_ip_src_LED_Driver
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/Normalize Signal/Min/Min --> dataplane_ip_src_Min
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/Normalize Signal/MinMax/MinMax --> dataplane_ip_src_MinMax
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor/Normalize Signal --> dataplane_ip_src_Normalize_Signal
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Signal Energy Monitor --> dataplane_ip_src_Signal_Energy_Monitor
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing/Sound Effects --> dataplane_ip_src_Sound_Effects
+lab3_p9/dataplane/Avalon Data Processing/Left Channel Processing --> dataplane_ip_src_Left_Channel_Processing
+lab3_p9/dataplane/Avalon Data Processing/Right Channel Processing/Sound Effects --> dataplane_ip_src_Sound_Effects_block
+lab3_p9/dataplane/Avalon Data Processing/Right Channel Processing --> dataplane_ip_src_Right_Channel_Processing
+lab3_p9/dataplane/Avalon Data Processing --> dataplane_ip_src_Avalon_Data_Processing
+lab3_p9/dataplane --> dataplane_ip_src_dataplane
