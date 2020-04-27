@@ -129,7 +129,7 @@
 				clocks = <0x2>;
 			}; //end serial@100000810 (jtag_uart)
 			
-			 DPRAM: dpram@100000000 {
+			DPRAM: dpram@100000000 {
                                 compatible = "fe,DPRAM-1.0", "dev,fe-dpram";
                                 reg = <0x00000001 0x00000000 0x00000800>;
                                 clocks = <0x2>;
