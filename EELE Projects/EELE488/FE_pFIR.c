@@ -34,10 +34,10 @@ struct fixed_num {
 };
 
 /* Register offsets of the pFIR component */
-#define ENABLE_OFFSET 0x0
-#define WR_DATA_OFFSET 0x1
-#define RW_ADDR_OFFSET 0x2
-#define WR_EN_OFFSET 0x3
+#define ENABLE_OFFSET  0x0
+#define RW_ADDR_OFFSET 0x1
+#define WR_DATA_OFFSET 0x2
+#define WR_EN_OFFSET   0x3
 
 /* Driver function prototypes */
 static int pFIR_probe		(struct platform_device *pdev);
@@ -49,20 +49,20 @@ static int pFIR_release		(struct inode *inode, struct file *file);
 static long pFIR_ioctl		(struct file *file, unsigned int cmd, unsigned long arg);
 
 /* FPGA device functions */
-static ssize_t enable_write    (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
-static ssize_t enable_read     (struct device *dev, struct device_attribute *attr, char *buf);
-static ssize_t wr_data_write   (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
-static ssize_t wr_data_read    (struct device *dev, struct device_attribute *attr, char *buf);
-static ssize_t rw_addr_write   (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
-static ssize_t rw_addr_read    (struct device *dev, struct device_attribute *attr, char *buf);
-static ssize_t wr_en_write     (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
-static ssize_t wr_en_read      (struct device *dev, struct device_attribute *attr, char *buf);
-static ssize_t name_read       (struct device *dev, struct device_attribute *attr, char *buf);
+static ssize_t enable_write     (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
+static ssize_t enable_read      (struct device *dev, struct device_attribute *attr, char *buf);
+static ssize_t rw_addr_write    (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
+static ssize_t rw_addr_read     (struct device *dev, struct device_attribute *attr, char *buf);
+static ssize_t wr_data_write    (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
+static ssize_t wr_data_read     (struct device *dev, struct device_attribute *attr, char *buf);
+static ssize_t wr_en_read       (struct device *dev, struct device_attribute *attr, char *buf);
+static ssize_t wr_en_write      (struct device *dev, struct device_attribute *attr, const char *buf, size_t count);
+static ssize_t name_read        (struct device *dev, struct device_attribute *attr, char *buf);
 
 /* Device attributes that show up in /sys/class for device */
-DEVICE_ATTR (enable, 		0664,	enable_read, 		enable_write); 
-DEVICE_ATTR (wr_data,    	0664,   wr_data_read,    	wr_data_write);
-DEVICE_ATTR (rw_addr,	        0664,   rw_addr_read,      	rw_addr_write);
+DEVICE_ATTR (enable, 		0664,   enable_read,		enable_write);
+DEVICE_ATTR (rw_addr,           0664,   rw_addr_read,           rw_addr_write);
+DEVICE_ATTR (wr_data,		0644,   wr_data_read, 		wr_data_write);
 DEVICE_ATTR (wr_en,             0664,   wr_en_read,      	wr_en_write);
 DEVICE_ATTR (name, 		0444, 	name_read, 		NULL);
 
@@ -72,8 +72,8 @@ struct fe_pFIR_dev {
   char *name;
   void __iomem *regs;
   int enable;
-  int wr_data;
   int rw_addr;
+  int wr_data;
   int wr_en;
 };
 typedef struct fe_pFIR_dev fe_pFIR_dev_t;
@@ -127,11 +127,6 @@ static int pFIR_init(void) {
     return ret_val;
   }
 
-   //char* argv[] = {"/bin/bash", "/root/pFIR.sh", NULL};
-
-   //static char* envp[] = { "HOME=/",  "TERM=linux",   "PATH=/sbin:/bin:/usr/sbin:/usr/bin", NULL };
-   //call_usermodehelper(argv[0], argv, envp, UMH_WAIT_EXEC);
- 
   pr_info("Flat Earth Programmable FIR Filter module successfully initialized!\n");
   
   return 0;
@@ -197,11 +192,11 @@ static int pFIR_probe(struct platform_device *pdev) {
   if (status)
     goto bad_device_create_file_1;
   
-  status = device_create_file(device_obj, &dev_attr_wr_data);
+  status = device_create_file(device_obj, &dev_attr_rw_addr);
   if (status)
     goto bad_device_create_file_2;
 
-  status = device_create_file(device_obj, &dev_attr_rw_addr);
+  status = device_create_file(device_obj, &dev_attr_wr_data);
   if (status)
     goto bad_device_create_file_3;
 
@@ -224,10 +219,10 @@ static int pFIR_probe(struct platform_device *pdev) {
     device_remove_file(device_obj, &dev_attr_wr_en);
   
   bad_device_create_file_3:
-    device_remove_file(device_obj, &dev_attr_rw_addr);
+    device_remove_file(device_obj, &dev_attr_wr_data);
 
   bad_device_create_file_2:
-    device_remove_file(device_obj, &dev_attr_wr_data);
+    device_remove_file(device_obj, &dev_attr_rw_addr);
 
   bad_device_create_file_1:
     device_remove_file(device_obj, &dev_attr_enable);
@@ -284,31 +279,6 @@ static ssize_t enable_write(struct device *dev, struct device_attribute *attr, c
   return count;
 }
 
-static ssize_t wr_data_read(struct device *dev, struct device_attribute *attr, char *buf) {
-  fe_pFIR_dev_t * devp = (fe_pFIR_dev_t *)dev_get_drvdata(dev);
-  fp_to_string(buf, devp->wr_data, 0, true, 9);
-  strcat2(buf,"\n");
-  return strlen(buf);
-}
-
-static ssize_t wr_data_write(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
-  uint32_t tempValue = 0;
-  char substring[80];
-  int substring_count = 0;
-  int i;
-  fe_pFIR_dev_t *devp = (fe_pFIR_dev_t *)dev_get_drvdata(dev);
-  for (i = 0; i < count; i++) {
-    if ((buf[i] != ',') && (buf[i] != ' ') && (buf[i] != '\0') && (buf[i] != '\r') && (buf[i] != '\n')) {
-      substring[substring_count] = buf[i];
-      substring_count ++;
-    }
-  }
-  substring[substring_count] = 0;
-  tempValue = set_fixed_num(substring, 0, false);
-  devp->wr_data = tempValue;
-  iowrite32(devp->wr_data, (u32 *)devp->regs + 1);
-  return count;
-}
 
 static ssize_t rw_addr_read(struct device *dev, struct device_attribute *attr, char *buf) {
   fe_pFIR_dev_t * devp = (fe_pFIR_dev_t *)dev_get_drvdata(dev);
@@ -332,7 +302,33 @@ static ssize_t rw_addr_write(struct device *dev, struct device_attribute *attr, 
   substring[substring_count] = 0;
   tempValue = set_fixed_num(substring, 0, false);
   devp->rw_addr = tempValue;
-  iowrite32(devp->rw_addr, (u32 *)devp->regs + 2);
+  iowrite32(devp->rw_addr, (u32 *)devp->regs + 1);
+  return count;
+}
+
+static ssize_t wr_data_read(struct device *dev, struct device_attribute *attr, char *buf) {
+  fe_pFIR_dev_t * devp = (fe_pFIR_dev_t *)dev_get_drvdata(dev);
+  fp_to_string(buf, devp->wr_data, 0, true, 9);
+  strcat2(buf,"\n");
+  return strlen(buf);
+}
+
+static ssize_t wr_data_write(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
+  uint32_t tempValue = 0;
+  char substring[80];
+  int substring_count = 0;
+  int i;
+  fe_pFIR_dev_t *devp = (fe_pFIR_dev_t *)dev_get_drvdata(dev);
+  for (i = 0; i < count; i++) {
+    if ((buf[i] != ',') && (buf[i] != ' ') && (buf[i] != '\0') && (buf[i] != '\r') && (buf[i] != '\n')) {
+      substring[substring_count] = buf[i];
+      substring_count ++;
+    }
+  }
+  substring[substring_count] = 0;
+  tempValue = set_fixed_num(substring, 0, false);
+  devp->wr_data = tempValue;
+  iowrite32(devp->wr_data, (u32 *)devp->regs + 2);
   return count;
 }
 
