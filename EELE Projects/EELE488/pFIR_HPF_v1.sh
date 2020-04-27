@@ -8,6 +8,7 @@ size=$(stat -c%s "$input")
 
 echo "Programming the FIR filter..."
 j=0;
+echo 1 > "$enable";
 
 mapfile -t a < "$input"
 for i in $(seq ${#a[*]}); do
@@ -15,5 +16,7 @@ for i in $(seq ${#a[*]}); do
 	echo "$((16#${a[$((i - 1))]}))" | tee "$coeff" > /dev/null ;
 	j=$((j+4));
 done
+
+echo 0 > "$enable";
 
 echo "FIR filter successfully programmed!"
