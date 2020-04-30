@@ -2,7 +2,7 @@
 #include the Tk package to setup the GUI
 package require Tk
 
-#destroy any instances of the the window
+#destroy any instances of the window
 destroy .test
 
 #define the top level window
