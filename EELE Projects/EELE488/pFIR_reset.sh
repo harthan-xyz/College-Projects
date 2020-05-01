@@ -1,5 +1,4 @@
 #!/bin/bash
-input=/root/pFIR/hpf_coefficients.txt
 register0="/sys/class/fe_DPRAM_248/fe_DPRAM_248/register0"
 register1="/sys/class/fe_DPRAM_248/fe_DPRAM_248/register1"
 register2="/sys/class/fe_DPRAM_248/fe_DPRAM_248/register2"
