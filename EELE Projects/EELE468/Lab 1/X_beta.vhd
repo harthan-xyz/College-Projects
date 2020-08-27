@@ -77,7 +77,6 @@ architecture X_beta_arch of X_beta is
 		begin
 			if (rising_edge(clk)) then			
 				if (ODD_OR_EVEN = '0') then
-					X_BETA_DELAY1 <= 
 					X_BETA <= X_B_EVEN;
 				else
 					X_BETA <= X_B_ODD;
