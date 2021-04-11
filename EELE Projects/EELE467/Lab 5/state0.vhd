@@ -6,8 +6,8 @@ use ieee.std_logic_1164.all;
 
 entity state0 is
 	port (clock	: in std_logic;
-			Reset : in std_logic;
-			LED0	: out std_logic_vector(6 downto 0));
+	      Reset 	: in std_logic;
+	      LED0	: out std_logic_vector(6 downto 0));
 end entity;
 
 architecture state0_arch of state0 is
@@ -23,12 +23,12 @@ architecture state0_arch of state0 is
 				LED_register <= "1000000";
 			elsif(rising_edge(clock)) then
 				LED_register(5) <= LED_register(6);
-            LED_register(4) <= LED_register(5);
-            LED_register(3) <= LED_register(4);
-            LED_register(2) <= LED_register(3);
-            LED_register(1) <= LED_register(2);
-            LED_register(0) <= LED_register(1);
-            LED_register(6) <= LED_register(0);
+            			LED_register(4) <= LED_register(5);
+            			LED_register(3) <= LED_register(4);
+            			LED_register(2) <= LED_register(3);
+            			LED_register(1) <= LED_register(2);
+            			LED_register(0) <= LED_register(1);
+            			LED_register(6) <= LED_register(0);
 			end if;
 		end process;	
 		
