@@ -3,8 +3,8 @@ use IEEE.std_logic_1164.all;
 
 entity state2 is
 	port (clock	: in std_logic;
-			Reset : in std_logic;
-			LED2	: out std_logic_vector(6 downto 0));
+	      Reset 	: in std_logic;
+	      LED2	: out std_logic_vector(6 downto 0));
 end entity;
 
 
@@ -12,11 +12,10 @@ architecture state2_arch of state2 is
 
 	--define the up down counter
 	component binary_up_down_counter is
-		port
-			(clk	 	: in std_logic;
-			 reset 	: in std_logic;
-			 updown	: in std_logic;
-			 q		   : out std_logic_vector (6 downto 0));
+		port(clk	: in std_logic;
+		     reset 	: in std_logic;
+		     updown	: in std_logic;
+		     q		: out std_logic_vector (6 downto 0));
 	end component;
 
 
