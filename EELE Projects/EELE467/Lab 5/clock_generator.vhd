@@ -1,16 +1,15 @@
-	-- Joshua Harthan
+-- Joshua Harthan
 -- EELE 467
--- Clock
+-- Clock Generator
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity clock_generator is
-	 port(
-        clk            : in  std_logic;                                           
-        SYS_CLKs_sec   : in  std_logic_vector(31 downto 0);    
-        Base_rate      : in  std_logic_vector(7 downto 0);     
-		  Clock_out		  : out std_logic
+	port(clk            : in  std_logic;                                           
+             SYS_CLKs_sec   : in  std_logic_vector(31 downto 0);    
+             Base_rate      : in  std_logic_vector(7 downto 0);     
+	     Clock_out      : out std_logic
     );
 end entity clock_generator;
 	
@@ -28,7 +27,7 @@ architecture clock_generator_arch of clock_generator is
 	
 	--multiply the base rate by the number of clocks in one second
 	clock_prescaler <= unsigned(SYS_CLKs_sec) * unsigned(Base_rate);
-	conversion <= clock_prescaler(39 downto 5); --convert this product as base_rate is fixed point
+	conversion <= clock_prescaler(39 downto 5); --convert this product, as base_rate is fixed point
 
 	--generate a new clock for the converted clock based off base rate
 	CLOCK_GEN : process(clk)
