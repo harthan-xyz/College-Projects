@@ -7,16 +7,16 @@ entity Qsys_LED_control is
 			--------------------------------------------------------
 			-- Interface with Avalon bus
 			--------------------------------------------------------
-			clk					: 	in std_logic;
-			reset_n 				: 	in std_logic; --reset asserted low
+			clk			: 	in std_logic;
+			reset_n 		: 	in std_logic; --reset asserted low
 			avs_s1_address		: 	in std_logic_vector(1 downto 0);
 			avs_s1_write		: 	in std_logic;
 			avs_s1_writedata	:	in std_logic_vector(31 downto 0);
-			avs_s1_read			: 	in std_logic;
-			avs_s1_readdata	: 	out std_logic_vector(31 downto 0);
-			switches				: 	in std_logic_vector(3 downto 0);
-			pushbutton			: 	in std_logic;
-			LEDs					: 	out std_logic_vector(7 downto 0)
+			avs_s1_read		: 	in std_logic;
+			switches		: 	in std_logic_vector(3 downto 0);
+			pushbutton		: 	in std_logic;
+			avs_s1_readdata		: 	out std_logic_vector(31 downto 0);
+			LEDs			: 	out std_logic_vector(7 downto 0)
 			);
 end Qsys_LED_control;
 
@@ -28,19 +28,18 @@ architecture Qsys_LED_control_arch of Qsys_LED_control is
 	signal reg3 : std_logic_vector(31 downto 0) := std_logic_vector(to_unsigned(16,32));
 
 	component LED_control is
-	 port(
-        clk            : in  std_logic;                         -- system clock
-        reset          : in  std_logic;                         -- system reset
-        PB             : in  std_logic;                         -- Pushbutton to change state  
-        SW             : in  std_logic_vector(3 downto 0);      -- Switches that determine next state
-        HS_LED_control : in  std_logic;                         -- Software is in control when asserted (=1)
-        SYS_CLKs_sec   : in  std_logic_vector(31 downto 0);     -- Number of system clock cycles in one second
-        Base_rate      : in  std_logic_vector(7 downto 0);      -- base transition time in seconds, fixed-point data type
-        LED_reg        : in  std_logic_vector(7 downto 0);      -- LED register
-        LED            : out std_logic_vector(7 downto 0)       -- LEDs on the DE10-Nano board
-    );
+		port(
+        		clk            : in  std_logic;                         -- system clock
+        		reset          : in  std_logic;                         -- system reset
+        		PB             : in  std_logic;                         -- Pushbutton to change state  
+       			SW             : in  std_logic_vector(3 downto 0);      -- Switches that determine next state
+        		HS_LED_control : in  std_logic;                         -- Software is in control when asserted (=1)
+        		SYS_CLKs_sec   : in  std_logic_vector(31 downto 0);     -- Number of system clock cycles in one second
+        		Base_rate      : in  std_logic_vector(7 downto 0);      -- base transition time in seconds, fixed-point data type
+        		LED_reg        : in  std_logic_vector(7 downto 0);      -- LED register
+        		LED            : out std_logic_vector(7 downto 0)       -- LEDs on the DE10-Nano board
+    		);
 	end component;
-	
 	
 	begin
 	
@@ -73,14 +72,14 @@ architecture Qsys_LED_control_arch of Qsys_LED_control is
 	
 	--instantiate the LED control component
 	LEDCONTROL : LED_control port map (clk => clk, 
-												  reset => reset_n, 
-												  PB => pushbutton, 
-												  SW => switches, 
-												  HS_LED_control => reg0(0), 
-												  SYS_CLKs_sec => reg1, 
-												  Base_rate => reg3(7 downto 0), 
-												  LED_reg => reg2(7 downto 0), 
-												  LED => LEDs
-												  );
+					   reset => reset_n, 
+					   PB => pushbutton, 
+					   SW => switches, 
+				           HS_LED_control => reg0(0), 
+					   SYS_CLKs_sec => reg1, 
+				           Base_rate => reg3(7 downto 0), 
+					   LED_reg => reg2(7 downto 0), 
+					   LED => LEDs
+					   );
 	
 end architecture;
